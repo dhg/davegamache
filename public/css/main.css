@@ -1,7 +1,8 @@
 /*
 
 Created by Dave Gamache exclusively for davegamache.com
-12/09/2011
+07/09/2012
+twitter.com/@dhg
 
 */
 
@@ -80,7 +81,7 @@ a:hover {
 ================================================== */
 /* White container that is the "page" */
 .wrapper {
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
   background: #fff;
 }
@@ -467,7 +468,8 @@ a:hover {
   .art-header {
     height: auto;
     padding-bottom: 100px;
-    background-position: top center !important; /* Important to override JS values */
+    background-size: cover !important;
+    background-attachment: scroll;
   }
   /* Remove bottom space out if articles doesn't have a background */
   .simple .art-header {
@@ -568,6 +570,13 @@ a:hover {
   }
   .abt .abt-subheader {
     font-size: 18px;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+  #logo h1 {
+    background-image: url('/public/img/small-logo-@2x.png');
+    background-size: 40px 60px;
   }
 }
 
