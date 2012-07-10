@@ -1,0 +1,20 @@
+---
+layout: post
+title: HTML Includes
+subtitle: What if HTML supported modular splitting of markup
+summary: I love working in front-end code and even love the organization of code. Keeping my CSS and JS modular and separated from my markup makes me happy.I love to use PHP includes to logically split up page markup, but wouldn't it be beautiful if I didn't have to use a backend language for includes?
+---
+
+<p>I love working in front-end code and even love the organization of code. Keeping my CSS and JS modular and separated from my markup makes me happy. One of the huge advantages of keeping CSS files separate from a page's markup is that if there are shared elements across pages (i.e. navigation) it's easy to restyle those elements across all of them. For this same reason, I love to use PHP includes to logically split up page markup, but <strong>wouldn't it be beautiful if I didn't have to use a backend language for includes?</strong></p>
+
+<p class="callout">Imagine a world where HTML5 would support a modular splitting of markup, just like it supports the splitting of CSS and JS. It would be fantastic.</p>
+
+<p>I will often have shared "doc-head.php" and "doc-foot.php" includes that I can use across the site that serve to house my doctype, meta tags, attach my CSS, JS and favicon, as well as respectively open and close my body and HTML tags. Really, any piece of code being re-used across a number of pages should only have to exist in one place, so I put them in PHP includes. A great example is a site's nav - I always put global navigation into my "doc-head.php." I should be able to do this without being required to use a backend language. </p>
+
+<p>The advantages seem great to me, but personally the two biggest wins would be:</p>
+
+<ul><li><strong>Following the DRY principle</strong>: Keeping code in one place makes it much easier to edit and maintain. As projects get larger in size, this only becomes more important.</li>
+<li><strong>Projects stay backend agnostic</strong>: If I'm working on markup of more than one page, I would like to organize that code with includes, but I also want to avoid forcing PHP on anyone who might need to work with my code. </li>
+</ul>
+
+<p>It's not as if this is entirely different from the notion of "including" CSS and JS. It's essentially the same functionality, but for HTML instead. There is no notion of this in the HTML5 spec (to my knowledge), but I sure wish there was. For now, I will settle to continue to use PHP includes, but I dream that the future holds a better solution for me.</p> 
