@@ -1,0 +1,315 @@
+/* 		Artfully masterminded by Dave Gamache  
+ *		dhgamache@gmail.com
+ */
+
+/* Structural Setup 
+-------------------------------------------- */
+.best-things {
+	width: 100%; 
+	margin-bottom: 0; 
+}
+.best-things li {
+	height: 1000px;
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: center center;
+	overflow: hidden;
+	background-attachment: fixed;
+}
+.best-things li .content h1 { 
+	color: #ff003c;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: normal; 
+}
+.best-things li .content {
+	z-index: 2;
+}
+
+/* Loading
+-------------------------------------------- */
+.loading {
+	background: #000 url('../images/loading.gif') no-repeat center center; 
+	width: 100%; 
+	height: 100%;
+	position: fixed; 
+	z-index: 5; 
+	top: 0; 
+	left: 0; 
+}
+.loading span {
+	position: absolute; 
+	top: 54%; 
+	left: 50%; 
+	margin-left: -65px; 
+	color: #fff; 
+	font-family: Georgia, "Times New Roman", serif; 
+}
+
+
+/* Intro 
+-------------------------------------------- */
+
+.best-things .intro {
+	background: #c7beb2;
+	z-index: 3;
+}
+.best-things .intro .best-seven {
+	position: fixed; 
+	left: 50%; 
+	top: 15%; 
+	margin-left: -339px; 
+	z-index: 2; 
+}
+.best-things .intro .attribution {
+	position: absolute; 
+	bottom: 240px; 
+	right: 30px; 
+	z-index: 2;
+}
+.best-things .intro .attribution a {
+	color: #000;
+}
+.best-things .intro .attribution p {
+	color: #111; 
+	font-family: Georgia, "Times New Roman", serif; 
+	font-weight: bold; 
+	font-size: 16px; 
+	text-align: right; 
+	line-height: 18px;
+	text-shadow: 0 0 5px rgab(0,0,0,.6);
+}
+.best-things .intro .attribution p small {
+	font-size: 12px; 
+	color: #333; 
+}
+.best-things .intro .attribution p small a {
+	color: #333; 
+}
+
+
+
+/* Thing one 
+-------------------------------------------- */
+
+.best-things .thing-one {
+	background-image: url(../images/dranks.jpg); 
+	background-color: #94a507;
+	z-index: 3;
+}
+.thing-one .content {
+	width: 350px; 
+	position: absolute; 
+	right: 150px; 
+	top: 30%;
+}
+.thing-one .content h1 {
+	color: #fff !important;
+	text-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+.thing-one .content p {
+	color: #fff;
+	text-shadow: 0 0 8px rgba(0,0,0,.5);
+}
+
+
+/* Thing two 
+-------------------------------------------- */
+
+.best-things .thing-two {
+	background-color: #ff0053;
+	background-image: url(../images/zurb.jpg); 
+	z-index: 3;
+}
+.thing-two .content {
+	width: 350px; 
+	position: absolute; 
+	left: 125px; 
+	top: 30%;
+}
+.thing-two .content p {
+	color: #fff; 
+	text-shadow: 0 0 5px rgba(0,0,0,.7);
+}
+.thing-two .content h1 {
+	width: 373px; 
+	height: 130px;
+	background: url(../images/zurb-logo.png) no-repeat; 
+	text-indent: -9999px;
+	display: block;
+	position: relative;
+	left: -12px;
+}
+.thing-two div.graph {
+	width: 1600px; 
+	height: 1000px;
+	background: url(../images/graph.png) no-repeat fixed 820px 0; 
+	z-index: 3;
+}
+
+
+/* Thing three 
+-------------------------------------------- */
+
+.best-things .thing-three {
+	background-color: #1085d4; 
+	background-image: url(../images/clouds.jpg); 
+	z-index: 3;
+}
+.thing-three .content {
+	width: 350px; 
+	position: absolute; 
+	right: 150px; 
+	top: 30%;
+}
+.thing-three .content h1 {
+	color: #fff !important;
+	text-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+.thing-three .content p {
+	color: #fff;
+	text-shadow: 0 0 8px rgba(0,0,0,.5);
+}
+.thing-three .photo-one { 
+	position: absolute; 
+	background: url(../images/me.png) no-repeat fixed 100px 0;
+	z-index: 4;
+	height: 1000px;
+	width: 1600px;
+}
+.thing-three .photo-two { 
+	position: absolute; 
+	background: url(../images/bahama-dave-ash.png) no-repeat fixed 40px 0;
+	width: 1600px;
+	height: 1000px;
+	z-index: 3; 
+}
+.thing-three .photo-three { 
+	position: absolute; 
+	left: 6%;
+	top: 18%;
+	z-index: 1;
+}
+.thing-three .photo-one:hover,
+.thing-three .photo-two:hover,
+.thing-three .photo-three:hover {
+	z-index: 5;
+}
+
+
+/* Thing four 
+-------------------------------------------- */
+
+.best-things .thing-four {
+	background-color: #303030;
+	background-image: url(../images/code.jpg); 
+	z-index: 5;
+}
+.thing-four .content {
+	width: 350px; 
+	position: absolute; 
+	left: 150px; 
+	top: 30%;
+}
+.thing-four .content h1 {
+	color: #fff !important;
+	text-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+.thing-four .content p {
+	color: #fff;
+	text-shadow: 0 0 8px rgba(0,0,0,.5);
+}
+
+/* Thing five 
+-------------------------------------------- */
+
+.best-things .thing-five {
+	background-color: #7d1a00;
+	background-image: url(../images/braid.jpg); 
+	z-index: 4;
+}
+.thing-five .content {
+	width: 350px; 
+	position: absolute; 
+	right: 150px; 
+	top: 30%;
+}
+.thing-five .content h1 {
+	color: #fff !important;
+	text-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+.thing-five .content p {
+	color: #fff;
+	text-shadow: 0 0 8px rgba(0,0,0,.5);
+}
+.best-things li ul { 
+	margin-left: 0; 
+	color: #fff; 
+}
+.best-things li ul li {
+	height: auto; 
+	margin-bottom:  10px; 
+}
+
+/* Thing six 
+-------------------------------------------- */
+
+.best-things .thing-six {
+	background-color: #f6f3ec;
+	background-image: url(../images/sketching.jpg); 
+	z-index: 4;
+}
+.thing-six .content {
+	width: 350px; 
+	position: absolute; 
+	left: 150px; 
+	top: 30%;
+}
+.best-things .thing-six .content h1,
+.best-things .thing-six .content p {
+	font-family: 'HelsinkiRegular', 'Comic Sans', sans-serif;
+	color: #000; 
+}
+.best-things .thing-six div#sketches,
+.best-things .thing-six div.orbit-wrapper {
+	display: block;
+	position: absolute; 
+	right: 100px; 
+	top: 5%; 
+}
+
+/* Thing seven 
+-------------------------------------------- */
+
+.best-things .thing-seven {
+	background-position: 42% 0%;
+	background: #f6f6f6;
+}
+.thing-seven .content {
+	width: 309px; 
+	height: 389px;
+	background: url(../images/bubble.png) no-repeat; 
+	position: fixed; 
+	right: 100px; 
+	top: 30%;
+	padding: 70px 90px 30px 160px; 
+}
+.best-things .thing-seven .content h1,
+.best-things .thing-seven .content p {
+	color: #fff;
+	text-align: center; 
+}
+.best-things .thing-seven .content p {
+	line-height: 21px; 
+}
+
+
+/* Fun Misc Shit 
+-------------------------------------------- */
+
+::selection {
+        background: #c8ef12; /* Safari */
+        }
+::-moz-selection {
+        background: #c8ef12; /* Firefox */
+}
+
