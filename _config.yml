@@ -1,3 +1,5 @@
-url: http://localhost:4000
+name: Dave Gamache - Designer and Developer
+description: Thoughts by Dave Gamache
+url: http://www.davegamache.com
 permalink: /:title
 redirects: yes
