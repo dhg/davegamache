@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title type="text" xml:lang="en">Dave Gamache: Designer &amp; Developer</title>
+    <link type="application/atom+xml" href="http://davegamache.com/feed/" rel="self"/>
+    <link type="text" href="http://davegamache.com" rel="alternate"/>
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <id>http://davegamache.com</id>
+    <author>
+        <name>Dave Gamache</name>
+    </author>
+    <rights>Copyright (c) 2010-2012 Dave Gamache</rights>
+    {% for post in site.posts limit:20 %}
+    <entry>
+        <title></title>
+        <link href="http://davegamache.com{{ post.url }}/"/>
+        <updated>{{ post.date | date_to_xmlschema }}</updated>
+        <id>http://davegamache.com{{ post.url }}/</id>
+        <summary type="html">{{ post.excerpt | xml_escape }}</summary>
+    </entry>
+    {% endfor %}
+</feed>

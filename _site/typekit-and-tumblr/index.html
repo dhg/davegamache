@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>  Typekit + Tumblr |  Dave Gamache: Designer &amp; Developer.</title>
+  <meta name="description" content="Dave Gamache: Designer and Developer at Twitter in San Francisco">
+  <meta name="author" content="Dave Gamache, @dhg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="/public/img/favicon.png">
+  <link rel="stylesheet" href="/public/css/main.css" />
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="/public/js/fittext.js"></script>
+  <script src="/public/js/app.js"></script>
+  <script src="http://use.typekit.com/cjx7kil.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  <script src="/public/js/respond.min.js"></script>
+</head>
+  <body>
+    <div class="wrapper">
+      <nav class="nav  fixed  ">
+  <a id="logo" href="/index">
+    <h1>DG</h1>
+  </a>
+  <ul class="nav-primary">
+    <li><a href="/articles">Articles</a></li>
+    <li>/</li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+      <article class="art simple">
+        <header class="art-header "> <!-- white -->
+          <div class="art-header-inner">
+            <time class="art-time">February 16, 2011</time>
+            <h2 class="art-title">Typekit + Tumblr</h2>
+            <p class="art-subtitle">Using Typekit &amp; Tumblr? Here's how to avoid the text flash.</p>
+          </div>
+        </header>
+        <div class="art-body">
+          <div class="art-body-inner">
+            <p>@Font-face is the new hotness and last year was a huge year for non-standard fonts on the web, which has really opened up the possibilities for web designers. Typekit has been no small player in the increased use of @font-face use since it is easy to implement and has some great fonts (like <a title="Proxima Nova on Typekit" href="http://typekit.com/fonts/proxima-nova">Proxima Nova</a> - the font <del>you are reading now</del> I used to use on my personal site), but I had my reservations about embedding a font through JS. </p>
+<p>My concerns were realized when I started using Typekit on this blog and every time the page loaded it initially loaded with my fallback Helvetica, then after a second or so would flash and substitute in Proxima Nova.</p>
+<p class="callout">It took a while to resolve, but the issue was putting the Typekit &lt;script&gt; tag in the footer.</p>
+<p>Even though putting JS at the bottom of the page is generally considered a best practice, Tumblr users who want to use Typekit need to put the necessary script tags in the &lt;head&gt; of the page. </p>
+<p><strong>Just wanted to share :)</strong></p>
+<p><strong>Note: </strong>It should be said that there is still sometimes a very quick flash of "fallback" font, but putting the Typekit &lt;script&gt; in the head greatly decreases it.</p> 
+          </div>
+        </div>
+      </article>
+      <footer class="footer">
+  <div class="back-to-top">
+    <a href="">Back to top</a>
+  </div>
+  <div class="footer-nav">
+     
+      <a href="/twitter-lists ">Previous</a> 
+    
+     
+     / 
+    
+     
+      <a href="/joseph-juran ">Next</a> 
+    
+    &nbsp;
+  </div>
+  <aside class="offsite-links">
+    <a class="twitter-link" href="http://www.twitter.com/dhg">Twitter</a> /
+    <a class="dribbble-link" href="http://dribbble.com/dhg">Dribbble</a>
+    <!-- <a class="rss-link" href="/feed">RSS</a> -->
+  </aside>
+</footer>
+    </div>
+  </body>
+</html>
