@@ -1,20 +1,386 @@
----
-layout: default
----
-
-<nav class="art-list">
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>  Dave Gamache: Designer &amp; Developer.</title>
+  <meta name="description" content="Dave Gamache: Designer and Developer at Twitter in San Francisco">
+  <meta name="author" content="Dave Gamache, @dhg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="/public/img/favicon.png">
+  <link rel="stylesheet" href="/public/css/main.css" />
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="/public/js/fittext.js"></script>
+  <script src="/public/js/app.js"></script>
+  <script src="http://use.typekit.com/cjx7kil.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  <script src="/public/js/respond.min.js"></script>
+</head>
+  <body>
+    <div class="wrapper">
+      <nav class="nav   ">
+  <a id="logo" href="/index">
+    <h1>DG</h1>
+  </a>
+  <ul class="nav-primary">
+    <li><a href="/articles">Articles</a></li>
+    <li>/</li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+      <nav class="art-list">
   <ul class="art-list-body">
-    {% for post in site.posts %}
+    
       <li class="art-list-item">
         <div class="art-list-item-title-and-time">
           <h2 class="art-list-title">
-            <a href="{{ post.url }}">{{ post.title }}</a>
+            <a href="/cinderblock">Cinderblock</a>
           </h2>
-          <div class="art-list-time">{{ post.date | date: "%B %d, %Y" }}</div>
+          <div class="art-list-time">June 24, 2012</div>
         </div>
-        <p>{{ post.summary }}</p>
+        <p>I always start personal projects from scratch. Well, almost from scratch. I made a super tiny boilerplate called Cinderblock that is the starting point for all my projects these days.</p>
         </a>
       </li>
-    {% endfor %}
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/chase-happiness">Chase happiness</a>
+          </h2>
+          <div class="art-list-time">February 22, 2012</div>
+        </div>
+        <p>The best advice I've ever received was "do what makes you happy." The simple adage has become my manifesto. The things you do on a daily basis are going to be what matters in the long run, so enjoy every day.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/minimal-posters">Minimalist Video Game Posters</a>
+          </h2>
+          <div class="art-list-time">January 25, 2012</div>
+        </div>
+        <p>I was awake at 3AM a few weeks ago and cranked these out. I've seen some really fantastic minimal posters across the web, so I figured I would contribute a few inspired by games I love.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/leaving-tumblr-for-wordpress">Leaving Tumblr for Wordpress</a>
+          </h2>
+          <div class="art-list-time">January 12, 2012</div>
+        </div>
+        <p>A year and some months ago I launched the first version of davegamache.com on Tumblr. At the time, it was the ideal publishing tool for me and has served me well, but I opted to move to Wordpress for my recent redesign. The original davegamache.com was designed specifically for Tumblr, but this time around I designed with no CMS in mind.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/craftsmanship">Craftsmanship</a>
+          </h2>
+          <div class="art-list-time">November 27, 2011</div>
+        </div>
+        <p>The concept of craftsmanship fascinates and drives me. There are many definitions of craftsmanship. Some silo the term to physical trades like carpentry, while others pigeonhole it to artistic endeavors. My understanding of craftsmanship is much more fundamental. Craftsmanship is doing what you love and doing it right. No matter what you do — designer, baker, electrician, architect, author — your job is your craft.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/skeleton-css">Skeleton CSS</a>
+          </h2>
+          <div class="art-list-time">May 23, 2011</div>
+        </div>
+        <p>Responsive design is not a silver bullet, but it is the strongest solution to the rapidly growing set of devices web designers and developers have to account for. It would be impossible to design for individual devices and screen sizes these days - instead let's be smart and essentially "bucket" devices into categorical sizes and design appropriately.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/html-includes">HTML Includes</a>
+          </h2>
+          <div class="art-list-time">May 16, 2011</div>
+        </div>
+        <p>I love working in front-end code and even love the organization of code. Keeping my CSS and JS modular and separated from my markup makes me happy.I love to use PHP includes to logically split up page markup, but wouldn't it be beautiful if I didn't have to use a backend language for includes?</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/3-month-goals">Three-Month Goals</a>
+          </h2>
+          <div class="art-list-time">April 13, 2011</div>
+        </div>
+        <p>I love to do stuff. So much stuff in fact, I often find myself overwhelmed by my own unorganized ambition, but luckily, I found my fix.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/verdict-on-dribbble">Verdict on Dribbble</a>
+          </h2>
+          <div class="art-list-time">March 28, 2011</div>
+        </div>
+        <p>Dribbble has been out long enough that designers have started taking sides. Some sing the praises of the talent and quality of work that are on Dribbble, but others condemn it as a group of elitist designers. I would make the assertion that the criticisms do hold some weight, but Dribbble still is enormously valuable to me.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/work-with-smart-people">Work with Smart People</a>
+          </h2>
+          <div class="art-list-time">March 22, 2011</div>
+        </div>
+        <p>The title pretty much says it all. I cannot sing the praises of working with smart people enough. There are so, so many advantages.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/moodboards">Moodboards</a>
+          </h2>
+          <div class="art-list-time">March 15, 2011</div>
+        </div>
+        <p>Moodboards rock my socks. They help bridge the gap between client expectations and a designer's vision for a project.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/why-jquery-is-winning">Why jQuery is Winning</a>
+          </h2>
+          <div class="art-list-time">March 09, 2011</div>
+        </div>
+        <p>There are a ton of solid JS libraries these days and jQuery isn't the most mature, robust, well-organized or even feature rich of them, but it is the most popular library and is only getting bigger. Why? I believe jQuery is winning for 3 simple reasons.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/step-away">Step Away From The Design</a>
+          </h2>
+          <div class="art-list-time">March 05, 2011</div>
+        </div>
+        <p>Just the other day while perusing Twitter I saw a rather insightful and very true tweet from Noah Stokes&hellip; "As a test to see if I my designs hold water, I like to step away from them for a few days then come back and see if I still like them."</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/typography-poster">Typography Poster</a>
+          </h2>
+          <div class="art-list-time">March 02, 2011</div>
+        </div>
+        <p>Typography was never my passion, but more and more I am finding that typography is getting me excited.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/sketching-with-purpose">Sketching with Purpose</a>
+          </h2>
+          <div class="art-list-time">March 01, 2011</div>
+        </div>
+        <p>What we don't often think about is how sketches are actually presentations - especially when we are talking about designer/client relationships.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/data-attributes-ftw">Custom Data Attributes FTW</a>
+          </h2>
+          <div class="art-list-time">February 28, 2011</div>
+        </div>
+        <p>HTML5 has lots of hotness in the spec, but I feel like the new custom data attribute feature is not getting the love it deserves. For those who aren't familiar with it, the purpose of the feature is to be able to attach data to DOM elements without using something like jQuery.data.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/joseph-juran">Joseph Juran</a>
+          </h2>
+          <div class="art-list-time">February 21, 2011</div>
+        </div>
+        <p>Joseph Juran made the assertion in 1941 that 80% of the effects come from 20% of the causes and dubbed the principle "Pareto's Principle" (after the early 20th century Italian economist Vilfredo Pareto who observed this law in action in farmland distribution).</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/typekit-and-tumblr">Typekit + Tumblr</a>
+          </h2>
+          <div class="art-list-time">February 16, 2011</div>
+        </div>
+        <p>@Font-face is the new hotness and last year was a huge year for non-standard fonts on the web, which has really opened up the possibilities for web designers. Typekit has been no small player in the increased use of @font-face use since it is easy to implement and has some great fonts.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/twitter-lists">Twitter Lists&#58; Get in Control</a>
+          </h2>
+          <div class="art-list-time">February 13, 2011</div>
+        </div>
+        <p>Twitter can be a loud, crazy place if you follow more than 100 people. I recently made a conscious effort to follow more designers from varying backgrounds, interests + focuses, but my problem was my Twitter feed was becoming overwhelming.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/cmon-photoshop">C'mon Photoshop, Fix That Radius</a>
+          </h2>
+          <div class="art-list-time">February 09, 2011</div>
+        </div>
+        <p>Using Photoshop to create visual designs for sites was not its intended original purpose. The name of the application is "photo" shop, thus it was intended for photo-manipulation, but that hasn't stopped it from becoming the preferred tool of designers. Now that Photoshop is king for web designers, what single feature do I find myself thinking "why hasn't this been addressed yet" almost everyday.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/robust-css">I Want Robust CSS</a>
+          </h2>
+          <div class="art-list-time">January 29, 2011</div>
+        </div>
+        <p>So I had a short lived love affair with LESS.js, but it fell apart since I have to pass my work off to clients and also work in a collaborative environment. If you're not familiar with LESS.js you should check out the site, but ultimately LESS.js extends your CSS with variables, inheritance, nested CSS rules, basic functions and a few other goodies.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/browser-updates">WTF Browser Updates</a>
+          </h2>
+          <div class="art-list-time">January 23, 2011</div>
+        </div>
+        <p>Google doesn't do everything right, but they're really crushing it with Chrome. There's a lot to praise, but as a web designer/developer I really appreciate their aggressive update strategy. Same goes for Apple and the Safari updates.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/sketching-for-fun">Sketching For Fun</a>
+          </h2>
+          <div class="art-list-time">January 16, 2011</div>
+        </div>
+        <p>I sketch almost everyday at work, but sometimes I like to sketch for fun. Often times it's in the margins and just my variation of a stick figure wearing a crown and a cape, but sometimes I get more into it. Tonight was one of those nights.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/font-face-experiment">CSS Font-Face Experiment</a>
+          </h2>
+          <div class="art-list-time">January 16, 2011</div>
+        </div>
+        <p>I have started using CSS3's glorious @font-face capability more and more and decided to take it to the limit, so I started by designing a quick typography poster (making sure to only use legally embeddable font-faces). Below is a snapshot of what is looks like.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/brain-drain">The Brain Drain Kills Stress</a>
+          </h2>
+          <div class="art-list-time">January 14, 2011</div>
+        </div>
+        <p>When there are 100 things running around in my head, the result is that none of them get done and the only thing I end up accomplishing is stressing myself out. Thankfully, I found my solution to feeling stressed all the time and I've named it the Brain Drain.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/best-seven-of-2010">Seven Best Things of Twenty-Ten</a>
+          </h2>
+          <div class="art-list-time">January 11, 2011</div>
+        </div>
+        <p>This past weekend I had some free time between playing Braid and eating, so I decided to dive into a personal one-off site. I was searching for inspiration when I came across Ian Coyle's NikeBetterWorld. It uses a vertical parallax of sorts and I figured I could use a similar technique as a framework to start from.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/a-decade-without-change">A Decade Without Change</a>
+          </h2>
+          <div class="art-list-time">January 08, 2011</div>
+        </div>
+        <p>Alright, so the title may be misleading, but hear me out. I am not saying that nothing has changed in terms of languages (in fact the past few years has held a huge change for front-end languages with the advent of HTML5, CSS3 and jQuery), but the way I write those languages hasn't changed.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/design-inspiration">Design Inspiration</a>
+          </h2>
+          <div class="art-list-time">January 04, 2011</div>
+        </div>
+        <p>Visual design is my favorite part of the design process, but sometimes it can be challenging to get started. It feels very similar to writing a paper in school - once I get the flow going everything is fine, but writing that first paragraph is always the hardest.</p>
+        </a>
+      </li>
+    
+      <li class="art-list-item">
+        <div class="art-list-item-title-and-time">
+          <h2 class="art-list-title">
+            <a href="/launching-ashleybatz">Launching AshleyBatz.com</a>
+          </h2>
+          <div class="art-list-time">December 23, 2010</div>
+        </div>
+        <p>My girlfriend Ashley is a full-time photographer for the Harker school, but she's also a fantastic freelancer. The new site is completely focused on her freelance shots organized by category (my personal favorite is boudoir).</p>
+        </a>
+      </li>
+    
   </ul>
 </nav>
+      <footer class="footer">
+  <div class="back-to-top">
+    <a href="">Back to top</a>
+  </div>
+  <div class="footer-nav">
+    
+    
+    
+    &nbsp;
+  </div>
+  <aside class="offsite-links">
+    <a class="twitter-link" href="http://www.twitter.com/dhg">Twitter</a> /
+    <a class="dribbble-link" href="http://dribbble.com/dhg">Dribbble</a>
+    <!-- <a class="rss-link" href="/feed">RSS</a> -->
+  </aside>
+</footer>
+    </div>
+  </body>
+</html>
+
+
+
+
+<!-- 
+- Setup git deploys
+- Fix about and article.html issue
+- Deploy live
+- Check live RSS feed
+- Tweet about this shit
+- Better load animations
+ -->
