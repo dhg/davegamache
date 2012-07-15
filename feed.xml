@@ -6,6 +6,66 @@
     <link>http://www.davegamache.com</link>
     
       <item>
+        <title>Hosted on Github</title>
+        <description>&lt;p&gt;Last week I popped open an outdated version of Filezilla, looked up FTP credentials for my ancient 1&amp;amp;1 hosting in a Google spreadsheet, then proceeded to overwrite every remote file on my site because I couldn't remember what was up-to-date. Then I cried. Deeply. 
+
+&lt;p&gt;Fixing my hosting and deploy process has been on my todo list for months, but somehow consistently took a backseat to sexier projects. I'm happy to announce I finally addressed it and am now 100% hosted on Github.&lt;/p&gt;
+
+&lt;h3 class=&quot;art-subhead&quot;&gt;Why it's awesome: &lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;The deploy process is fantastically simple. I just push to a gh-pages branch and it's live in seconds.&lt;/li&gt;
+  &lt;li&gt;My version control and hosting are the same platform. This makes handling changes a snap.&lt;/li&gt;
+  &lt;li&gt;Easy deploys mean I'm more likely to address bugs/issues in a timely manner.&lt;/li&gt;
+  &lt;li&gt;It's free (unless you want private repositories).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 class=&quot;art-subhead&quot;&gt;The limitation:&lt;/h3&gt; 
+&lt;p&gt;Github pages only serve vanilla HTML/CSS/JS, meaning if your project requires server-side scripting or a traditional database, you're out of luck. That said, greater numbers of projects and libraries are adopting compiled static assets and heavy client-side logic, so hopefully this isn't a crippling contrainst for most.&lt;/p&gt;
+
+&lt;h3 class=&quot;art-subhead&quot;&gt;Get up and running with Github hosting:&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Create a branch off an existing github repo, name it &quot;gh-pages&quot;, and push&lt;/li&gt;
+  &lt;li&gt;Visit &lt;em&gt;yourGithubUsername.github.com/reponame&lt;/em&gt; and voila!&lt;/li&gt;
+  &lt;li&gt;To use a custom domain follow &lt;a href=&quot;https://help.github.com/articles/setting-up-a-custom-domain-with-pages&quot;&gt;Github's instructions&lt;/a&gt;, but it basically requires placing a CNAME file in the root of the repo that points to a custom URL, then setting the matching domain's A-record to Github's IP address. (204.232.175.78)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 class=&quot;art-subhead&quot;&gt;Deploying in style&lt;/h3&gt;
+
+&lt;p&gt;If your site is raw HTML/CSS/JS, deploying is as simple as merging any new changes from a working branch into the gh-pages branch and pushing. You're done. Changes to your site will be reflected almost immediately. &lt;/p&gt; 
+
+&lt;p&gt;There are some more complicated situations though. For example, the blog you're reading has Ruby source files that are compiled to create static HTML/CSS&lt;sup&gt;1&lt;/sup&gt;. Since Github hosting doesn't support running Ruby, my gh-pages branch must be only the static HTML/CSS. Thus, my master branch is the Ruby source, while the gh-pages branch is only the compiled HTML/CSS.&lt;/p&gt;
+
+&lt;p&gt;The challenge then becomes how to merge newer, compiled files from the source branch into the gh-pages branch to be published? The brute force option would be for me to check out 2 instances of the &quot;davegamache.com&quot; repo, one on the master branch and the other on the gh-pages branch. I could work exclusively in the master branch and then drag-and-drop the updated, compiled site into the gh-pages instance when I was ready to publish.&lt;/p&gt; 
+
+&lt;p&gt;While the copy-pasta approach absolutely works, I wanted something a bit less kludgy that didn't require me to check out multiple instances of a repo. My solution was to write a bash script&lt;sup&gt;2&lt;/sup&gt; that did the work for me. Here's what it does:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Copies the compiled HTML/CSS from master into a temp directory outside the repo&lt;/li&gt;
+  &lt;li&gt;Switches to the gh-pages branch and replaces old files with new ones&lt;/li&gt;
+  &lt;li&gt;Does a 'git add -A' to add any new files&lt;/li&gt;
+  &lt;li&gt;Runs a 'git status' so I know exactly what's changed before I push live&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;margin-bottom: 10px&quot;&gt;Here's the alias in full:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/3119260.js?file=davegamache_bash_alias&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;I have a similar alias for my Skeleton project. I keep source files in the master branch, while the documentation code lives in the gh-pages branch.  Since the docs are built on the source (with some additional custom CSS), I use an alias to keep the docs up-to-date with the true Skeleton source from the master branch.&lt;/p&gt;
+
+&lt;h3 class=&quot;art-subhead&quot;&gt;I love my new workflow&lt;/h3&gt;
+
+&lt;p&gt;Using Github as a hosting provider is amazing. If you have projects built with vanilla HTML/CSS/JS (or that compile to static code), I strongly suggest giving Github pages a chance. Combining version control with hosting seems like a no brainer in retrospect. Since version control already means pushing files to a remote server, why not use that same system to deploy the whole site to a remote server?&lt;/p&gt; 
+
+&lt;p class=&quot;callout&quot;&gt;Faster, simpler, semi-automated deploys means I get to focus on the fun stuff like designing, writing and coding.&lt;/p&gt;
+
+&lt;ol class=&quot;art-reference&quot;&gt;
+  &lt;li&gt;My blog is actually built on Jekyll, which is what Github pages is built on. If I didn't have custom Ruby plugins, Github would magically parse my repo.&lt;/li&gt;
+  &lt;li&gt;Not familiar with your bash alias? It's basically a file that allows you to save terminal commands to shorthand aliases. Read more about it on www.something.com.&lt;/li&gt;
+&lt;/ol&gt;</description>
+        <published>Fri Jul 13 00:00:00 -0700 2012</published>
+        <link>http://www.davegamache.com/hosted-on-github</link>
+      </item>
+    
+      <item>
         <title>Cinderblock</title>
         <description>&lt;p&gt;I always start personal projects from scratch. Well, almost from scratch. I made a super tiny boilerplate called Cinderblock that is the starting point for all my projects. I found myself constantly downloading &lt;a href=&quot;http://www.getskeleton.com&quot;&gt;Skeleton&lt;/a&gt;, stripping out the grid, the favicons, extra JS and then getting started. After doing that 10 times, I created Cinderblock.&lt;/p&gt;
 &lt;p&gt;The whole project is:&lt;/p&gt;
@@ -216,20 +276,6 @@
 &lt;p&gt;So go forth and browse Dribbble...and don't forget to try the &quot;everyone&quot; filter. I promise you will find quality and variety there :)&lt;/p&gt; </description>
         <published>Mon Mar 28 00:00:00 -0700 2011</published>
         <link>http://www.davegamache.com/verdict-on-dribbble</link>
-      </item>
-    
-      <item>
-        <title>Work with Smart People</title>
-        <description>&lt;p&gt;The title pretty much says it all. I cannot sing the praises of working with smart people enough. There are so, so many advantages. My team at ZURB is collectively brilliant, but also individually intelligent and talented, and I reap the benefits on a daily basis. Working with smart people means:&lt;/p&gt;
-&lt;ul&gt;&lt;li&gt;&lt;strong&gt;You learn more&lt;/strong&gt;. Before I started as ZURB I knew only a bit about jQuery and even less about javascript. I was inspired by our engineer Matt to learn more about it...4 plugins and quite a few jQuery-powered sites later, that learning has become invaluable. This is just one example among hundreds.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;You get important, critical feedback. &lt;/strong&gt;For me, this is true in so many ways, but especially around visual design. Getting input from a team of experienced and talented designers means my ego gets crushed a bit, but my designs and skills only get stronger each time.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Synergy happens. &lt;/strong&gt;It sounds cheesy, but it is absolutely true. Working with a team can create results greater than the sum of its parts. What I mean is, three designers could work on a mockup and arrive at three mediocre designs, or they could work together to create a fantastic one.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;You keep on top your game.&lt;/strong&gt; Working with smart people means pushing yourself to be smarter and to present yourself well everyday. For me, one example of this is making sure I come across with a level of eloquence on client calls. Smart people hold you to a higher standard when you work alongside them and you don't want to disappoint. &lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;Working with people smarter than yourself can be challenging sometimes...or all the time...but it only helps in becoming smarter and more talented yourself. I have certainly seen the benefits of working with smart, experienced and talented folks and would struggle to work without them now.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;To all of you awesome co-workers and friends I have worked with or am working with, I tip my hat to you. &lt;/strong&gt;&lt;/p&gt;
- </description>
-        <published>Tue Mar 22 00:00:00 -0700 2011</published>
-        <link>http://www.davegamache.com/work-with-smart-people</link>
       </item>
     
   </channel>
