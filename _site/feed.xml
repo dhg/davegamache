@@ -11,7 +11,7 @@
 
 &lt;p&gt;Fixing my hosting and deploy process has been on my todo list for months, but somehow consistently took a backseat to sexier projects. I'm happy to announce I finally addressed it and am now 100% hosted on Github.&lt;/p&gt;
 
-&lt;h3 class=&quot;art-subhead&quot;&gt;Why it's awesome: &lt;/h3&gt;
+&lt;h3 class=&quot;art-subhead&quot;&gt;Why it's awesome&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;The deploy process is fantastically simple. I just push to a gh-pages branch and it's live in seconds.&lt;/li&gt;
   &lt;li&gt;My version control and hosting are the same platform. This makes handling changes a snap.&lt;/li&gt;
@@ -19,10 +19,10 @@
   &lt;li&gt;It's free (unless you want private repositories).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 class=&quot;art-subhead&quot;&gt;The limitation:&lt;/h3&gt; 
+&lt;h3 class=&quot;art-subhead&quot;&gt;The limitation&lt;/h3&gt; 
 &lt;p&gt;Github pages only serve vanilla HTML/CSS/JS, meaning if your project requires server-side scripting or a traditional database, you're out of luck. That said, greater numbers of projects and libraries are adopting compiled static assets and heavy client-side logic, so hopefully this isn't a crippling contrainst for most.&lt;/p&gt;
 
-&lt;h3 class=&quot;art-subhead&quot;&gt;Get up and running with Github hosting:&lt;/h3&gt;
+&lt;h3 class=&quot;art-subhead&quot;&gt;Get up and running with Github hosting&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;Create a branch off an existing github repo, name it &quot;gh-pages&quot;, and push&lt;/li&gt;
   &lt;li&gt;Visit &lt;em&gt;yourGithubUsername.github.com/reponame&lt;/em&gt; and voila!&lt;/li&gt;
