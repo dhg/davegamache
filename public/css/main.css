@@ -457,6 +457,7 @@ a:hover {
   .nav.fixed {
     position: relative;
     opacity: 1 !important; /* Important to override JS values */
+    display: inline-block;
   }
   .art-header-inner {
     position: relative;
