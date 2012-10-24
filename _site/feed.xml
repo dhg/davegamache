@@ -6,40 +6,16 @@
     <link>http://www.davegamache.com</link>
     
       <item>
-        <title>Start Prototyping</title>
-        <description>&lt;!-- &lt;p&gt;Each company, startup or team has a process to mature their product from concept to shipped code. Some swear by agile development, some still rely on more traditional development models, and some have even created an entire framework all their own. Whatever the process though, the goal is for a team to collaborate in creating a fantastic product in a timely fashion. In my experience, creating a prototype early on increases the likelihood of a product's success drastically.&lt;/p&gt; --&gt;
+        <title>Ratchet</title>
+        <description>&lt;p&gt;Today, &lt;a href=&quot;http://www.twitter.com/connors&quot;&gt;@connors&lt;/a&gt;, &lt;a href=&quot;http://www.twitter.com/fat&quot;&gt;@fat&lt;/a&gt; and I are releasing Ratchet, a collection of vanilla HTML/CSS/JS components for easily prototyping iPhone apps. Its purpose is to help designers and developers quickly turn their app ideas into tangible, interactive prototypes. We believe the best way to test an idea is to build it, then play with it.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Prototypes communicate how a product works and a vision for it.&lt;/strong&gt; They give everyone a stronger understanding of the product and a chance to provide feedback early on. To name just a few role-specific advantages:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Check out the docs at &lt;a href=&quot;#&quot;&gt;www.dhgamache.github.com/ratchet&lt;/a&gt;&lt;/strong&gt;, or go straight to the &lt;a href=&quot;#&quot;&gt;source on github&lt;/a&gt;. As of today, there are about a dozen components, but it will continue to grow over the coming months.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Designers&lt;/strong&gt; understand how their work feels on a given device in a more tangible way, allowing them to refine visuals and interactions accordingly&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Engineers&lt;/strong&gt; get visibility into potential technical challenges and have incredibly detailed documentation of the design &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Researchers&lt;/strong&gt; can collect qualatative feedback earlier and help guide the product direction&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Managers&lt;/strong&gt; get a more concrete concept of what's to be built, better allowing them to coordinate resources&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Non-technical team members&lt;/strong&gt; have a vehicle to help them better sell, market or understand the product&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Investors&lt;/strong&gt; have a chance to play with a &quot;super alpha&quot; result of their investment&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;I'm crazy excited about this launch. Giving back to the community through open-source is something I really believe in. Digging through open-source code has been a primary source of engineering education for me, second only to borrowed time from  incredible friends and co-workers.&lt;/p&gt;
 
-&lt;p&gt;These are just a handful of benefits, but the actual value of a great prototype is immeasurable. It can be the difference between a strong initial round of funding or dissolving the company. Between a team that understands the product direction and executes or one that struggles to work together. Between launching a considered, well-crafted product on time or forcing a lackluster one to market. I have professional friends that have suffered failed pitches to investors, only to turn around, pull together a quick prototype, and raise millions of dollars for the exact same idea.&lt;/p&gt; 
-
-&lt;h3 class=&quot;art-subhead&quot;&gt;The W's of prototyping&lt;/h3&gt;
-
-&lt;p&gt;I've covered the &quot;why&quot; of prototyping, but here are the other elementary school &quot;W's&quot; of prototyping: &lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Who&lt;/strong&gt;: Everyone. Designers and engineers should work closely, but share updates with everyone on a regular cadence. Collect feedback frequently and make sure each subsequent iteration addresses it (or that it's being explicitly ommited for a reason)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;When&lt;/strong&gt;: Early in the product creation process. As early as possible without investing in ideas that should be scrapped at a conceptual or sketch level.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Where&lt;/strong&gt;: Keep the canonical prototype in a central location that any member of the company can view. Having a separate space for exploration is fine, but be sure to what's &quot;current&quot; in one location, available to all.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;How&lt;/strong&gt;&lt;sup&gt;1&lt;/sup&gt;: Any way possible, but I've found HTML/CSS/JS have by far the largest advantages. They're widely understood, work well on almost any device, are easy to update, and iteration is quick. I've also used Keynote, but it doesn't handle interactivity well, is more laborious to iterate with, and is more difficult to share across a team and devices.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In short, the benefits of a prototype considerably outweight the time investment required, and can be the key to an idea's success. Don't wait, start prototyping now.&lt;/p&gt;
-
-&lt;ol class=&quot;art-reference&quot;&gt;
-  &lt;li&gt;Yes, I know how doesn't start with &quot;W&quot;. Not sure why, but my teachers always taught the 5 W's as &quot;who, what, when, where, why ... and how&quot;. It threw me for a loop as a kid, but stuck with me as an adult.&lt;/li&gt;
-&lt;/ol&gt;</description>
-        <published>Mon Sep 24 00:00:00 -0700 2012</published>
-        <link>http://www.davegamache.com/start-prototyping</link>
+&lt;p&gt;Let me know what you think of Ratchet. We built it for you. Hit me up on Twitter &lt;a href=&quot;&quot;&gt;@dhg&lt;/a&gt;, or if you find a bug &lt;a href=&quot;&quot;&gt;file an issue on Github&lt;/a&gt;.&lt;/p&gt;</description>
+        <published>Thu Oct 25 00:00:00 -0700 2012</published>
+        <link>http://www.davegamache.com/ratchet</link>
       </item>
     
       <item>
