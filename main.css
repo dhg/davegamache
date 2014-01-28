@@ -1,0 +1,132 @@
+/* Structure & Background
+----------------------------- */
+.wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+}
+.wrapper:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+.wrapper:after {
+  content: '';
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  border: 1px solid rgba(255,255,255,.2);
+}
+.wrapper-inner {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 2;
+  margin-top: 5%;
+  max-width: 80%;
+}
+.triangle-pattern {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('triangles.png');
+  background-size: cover;
+  background-position: center;
+  opacity: .03;
+}
+
+/* Type
+----------------------------- */
+.name {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  font-weight: 300;
+  font-style: italic;
+  font-family: "freight-big-pro";
+  margin-bottom: 0;
+}
+.byline {
+  font-family: "brandon-grotesque";
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+}
+.divider {
+  width: 80px;
+  margin-top: 75px;
+  border-color: rgba(255,255,255,.3);
+  border-width: 0;
+  border-bottom-width: 1px;
+}
+
+/* Social Links
+----------------------------- */
+.social-links {
+  margin: 75px 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+.social-links > li {
+  display: inline-block;
+}
+.social-link-item {
+  display: inline-block;
+  background-image: url(icons-sprite.png);
+  height: 20px;
+  background-size: 65px 20px;
+  text-indent: -9999px;
+  margin-left: 30px;
+  opacity: .4;
+  -webkit-transition: opacity .1s ease-in;
+}
+.social-link-item:hover {
+  opacity: 1;
+}
+.social-link-item-dribbble {
+  margin-left: 0;
+  width: 20px;
+}
+.social-link-item-twitter {
+  background-position: -20px 0;
+  width: 24px;
+}
+.social-link-item-medium {
+  background-position: -45px 0;
+  width: 20px;
+}
+
+@media (max-width: 800px) {
+  .name {
+    font-size: 55px;
+  }
+}
+@media (max-width: 400px) {
+  .name {
+    font-size: 34px;
+  }
+  .byline {
+    font-size: 12px;
+  }
+  .divider {
+    margin-top: 45px;
+  }
+  .social-links {
+    margin-top: 55px;
+  }
+}
