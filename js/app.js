@@ -32,6 +32,12 @@ var dg = {
 
     dg.currentScrollTop = dg.$window.scrollTop();
 
+    if(dg.currentKeyframe == 0) {
+        dg.scrawler(".intro-background", 200, 0, 0);
+        dg.scrawler(".name", '65%', 0, 0);
+        dg.scrawler(".intro", '-101%', 0, 0);
+    }
+
     dg.whichKeyframe();
 
     // console.log(dg.currentKeyframe + " , " + (dg.keyframeHeights[dg.currentKeyframe] + dg.prevKeyframesHeights));
@@ -40,11 +46,6 @@ var dg = {
     // console.log(dg.keyframeHeights[dg.currentKeyframe]);
     // console.log(dg.currentKeyframe);
 
-    if(dg.currentKeyframe == 0) {
-        dg.scrawler(".intro-background", 200, 0, 0);
-        dg.scrawler(".name", '65%', 0, 0);
-        dg.scrawler(".intro", '-101%', 0, 0);
-    }
   },
 
   whichKeyframe: function() {
