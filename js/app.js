@@ -38,7 +38,7 @@ var dg = {
         dg.scrawler(".intro", '-101%', 0, 0);
     }
 
-    dg.whichKeyframe();
+    dg.setKeyframe();
 
     // console.log(dg.currentKeyframe + " , " + (dg.keyframeHeights[dg.currentKeyframe] + dg.prevKeyframesHeights));
     // console.log(dg.currentScrollTop + " vs. " + dg.prevKeyframesHeights);
@@ -48,7 +48,7 @@ var dg = {
 
   },
 
-  whichKeyframe: function() {
+  setKeyframe: function() {
     if(dg.currentScrollTop > (dg.keyframeHeights[dg.currentKeyframe] + dg.prevKeyframesHeights)) {
         dg.prevKeyframesHeights += dg.keyframeHeights[dg.currentKeyframe];
         dg.currentKeyframe++;

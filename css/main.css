@@ -16,20 +16,9 @@
   background-size: cover;
 }
 .medium {
-  /*position: relative;*/
-  background-color: green;
   background-image: url('../img/girlinstreet.jpg');
   background-size: cover;
-  /*background-attachment: fixed;*/
   overflow: hidden;
-}
-.endof2 {
-  position: absolute;;
-  height: 1600px;
-  width: 50px;
-  top: 0;
-  left: 0;
-  background: purple;
 }
 .name {
   position: fixed;
