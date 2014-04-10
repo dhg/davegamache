@@ -2,12 +2,14 @@ var dg = {
 
   // Variables
   $window:                  $(window),
+  $body:                    $('body'),
   $intro:                   $('.intro'),
   $name:                    $('.name'),
   $medium:                  $('.medium'),
+  bodyHeight:               0,
   currentScrollTop:         0,
   windowHeight:             0,
-  keyframeHeights:          ['100%', 700, 800],
+  keyframeHeights:          ['100%', '100%', 800],
   prevKeyframesHeights:     0,
   currentKeyframe:          0,
 
@@ -23,9 +25,11 @@ var dg = {
         // Change all of the keyframe heights to px
     for(i=0;i<dg.keyframeHeights.length;i++) {
         dg.keyframeHeights[i] = dg.convertPercentToDecimal(dg.keyframeHeights[i]);
+        dg.bodyHeight += dg.keyframeHeights[i];
     }
     dg.$intro.height(dg.keyframeHeights[0]);
     dg.$medium.height(dg.keyframeHeights[1] + dg.keyframeHeights[2]);
+    dg.$body.height(dg.bodyHeight);
   },
 
   onScroll: function() {
@@ -36,7 +40,16 @@ var dg = {
         dg.scrawler(".intro-background", 200, 0, 0);
         dg.scrawler(".name", '65%', 0, 0);
         dg.scrawler(".intro", '-101%', 0, 0);
+        dg.scrawler(".medium", '-101%', 0, 0);
+        dg.scrawler(".test-item-1", '-10%', 400, 0);
+        dg.scrawler(".test-item-2", 45, -20, 0);
+        dg.scrawler(".test-item-3", '37%', 700, 0);
+        dg.scrawler(".test-item-4", '-11%', 200, 0);
+        dg.scrawler(".test-item-5", 900, 40, 0);
+        dg.scrawler(".test-item-6", '-101%', 393, 0);
+        dg.scrawler(".test-item-7", '50%', 200, 0);
     }
+
 
     dg.setKeyframe();
 
