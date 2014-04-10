@@ -1,0 +1,39 @@
+.intro {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.intro-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-image: url('../img/girlinbar.jpg');
+  background-size: cover;
+}
+.medium {
+  /*position: relative;*/
+  background-color: green;
+  background-image: url('../img/girlinstreet.jpg');
+  background-size: cover;
+  /*background-attachment: fixed;*/
+  overflow: hidden;
+}
+.endof2 {
+  position: absolute;;
+  height: 1600px;
+  width: 50px;
+  top: 0;
+  left: 0;
+  background: purple;
+}
+.name {
+  position: fixed;
+  top: 300px;
+  left: 50%;
+  color: white;
+}
