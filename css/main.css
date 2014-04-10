@@ -1,5 +1,4 @@
 body {
-  /*height: 2000px;*/
   background: #111;
 }
 
@@ -22,31 +21,10 @@ body {
 }
 .name {
   position: fixed;
-  top: 300px;
-  left: 50%;
+  top: 48%;
+  left: 20%;
   color: white;
 }
-
-.test { 
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-.test li {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  background: green;
-}
-.test-item-1 { top: 50px; left: 100px; }
-.test-item-2 { top: 250px; left: 10px; }
-.test-item-3 { top: 500px; left: 800px; }
-.test-item-4 { top: 120px; left: 500px; }
-.test-item-5 { top: 444px; left: 560px; }
-.test-item-6 { top: 222px; left: 720px; }
-.test-item-7 { top: 346px; left: 40px; }
 
 
 .medium {
@@ -59,16 +37,39 @@ body {
 }
 .medium-background {
   position: fixed;
-  top: 0;
+  top: -5%;
   right: 0;
   left: 0;
-  bottom: 0;
+  bottom: -10%;
   background-image: url('../img/girlinstreet.jpg');
   /*background-size: cover;*/
 }
 .other-name {
   position: fixed;
-  top: 300px;
-  left: 50%;
+  top: 68%;
+  left: 13%;
   color: white;
+  max-width: 300px;
+}
+.phone {
+  position: fixed;
+  left: 120%;
+  top: 5%;
+  width: 385px;
+  height: 798px;
+  background-image: url(../img/phone.png);
+  background-size: cover;
+  z-index: 3;
+}
+.phone-2 {
+  top: 11%;
+  width: 346px;
+  height: 718px;
+  z-index: 2;
+}
+.phone-3 {
+  top: 17%;
+  width: 308px;
+  height: 638px;
+  z-index: 1;
 }
