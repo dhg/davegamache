@@ -17,20 +17,20 @@
         keyframes = [
           {
             'start' : 0,// the keyframe at which you want the animations to start
-            'duration' : '250%',
+            'duration' : '150%',
             'animations' :  [
               {
                 'selector'    : '.intro',
                 'translateY'  : -100
               } , {
                 'selector'    : '.name',
-                'translateY'  : 0,
-                'opacity'     : 0
+                'translateY'  : 0
+                // 'opacity'     : .01
               }
             ]
           } , {
             'start' : 0,// the keyframe at which you want the animations to start
-            'duration' : '500%',
+            'duration' : '400%',
             'animations' :  [
               {
                 'selector'    : '.medium-background',
@@ -57,22 +57,6 @@
       $window.on('scroll', onScroll);
       buildPage();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
     buildPage = function() {
       scrollTop = $window.scrollTop();
@@ -112,7 +96,7 @@
     calcPropValue = function(animation, property) {
       var value = animation[property];
       if(value) {
-        value = easeOutQuad(relativeScrollTop, 0, value, keyframes[currentKeyframe].duration);
+        value = easeInOutQuad(relativeScrollTop, 0, value, keyframes[currentKeyframe].duration);
       } else {
         value = getDefaultPropertyValue(property);
       }
@@ -140,12 +124,14 @@
           })
 
         }
-      // }, 5000);
+      // }, 40);
     };
 
-    easeOutQuad = function (t, b, c, d) {
-      t /= d;
-      return -c * t*(t-2) + b;
+    easeInOutQuad = function (t, b, c, d) {
+      t /= d/2;
+      if (t < 1) return c/2*t*t + b;
+      t--;
+      return -c/2 * (t*(t-2) - 1) + b;
     };
 
     setKeyframe = function() {
@@ -170,3 +156,13 @@
 
   })
 }).call(this);
+
+
+/*
+
+Thanks for http://www.gizma.com/easing/ for providing the easing 
+To http://www.kirupa.com/forum/showthread.php?378287-Robert-Penner-s-Easing-Equations-in-Pure-JS-(no-jQuery) for helping me understand easing
+To Dropbox Team for not obfuscating their JS which made this project much easier to complete
+
+
+*/
