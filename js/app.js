@@ -22,14 +22,8 @@
                 'selector'    : '.intro',
                 'translateY'  : -400
               } , {
-                'selector'    : '.intro-background',
-                'translateY'  : 200
-              } , {
                 'selector'    : '.name',
                 'translateY'  : 0
-              } , {
-                'selector'    : '.medium',
-                'translateY'  : '-100%'
               }
             ]
           } , {
@@ -41,7 +35,8 @@
                 'translateY'  : -50
               } , {
                 'selector'    : '.other-name',
-                'translateY'  : '-20%'
+                'translateY'  : '-20%',
+                'opacity'     : .5
               } , {
                 'selector'    : '.phone',
                 'translateX'  : -670
@@ -82,28 +77,54 @@
     }
 
     onScroll = function() {
-      var animation, transform, translateY;
       currentScrollTop = $window.scrollTop();
-      for(i=0;i<keyframes[currentKeyframe].animations.length;i++) {
-        animation = keyframes[currentKeyframe].animations[i];
-        if(animation.translateY) {
-          animation.translateY = convertPercentToPx(animation.translateY);
-          translateY = (currentScrollTop - prevKeyframesHeights) * (animation.translateY / keyframes[currentKeyframe].duration);
-        } else {
-          translateY = 0;
-        }
-        if(animation.translateX) {
-          animation.translateX = convertPercentToPx(animation.translateX);
-          translateX = (currentScrollTop - prevKeyframesHeights) * (animation.translateX / keyframes[currentKeyframe].duration);
-        } else {
-          translateX = 0;
-        }
-        $(animation.selector).css({
-          '-webkit-transform': 'translate3d(' + translateX +'px, ' + translateY + 'px, 0)',
-        })
-      }
+      animateElements();
       setKeyframe();
     }
+
+    animateElements = function() {
+      var animation, transform, translateY, translateX, opacity;
+      // var animating = setInterval(function() {
+        for(i=0;i<keyframes[currentKeyframe].animations.length;i++) {
+          animation = keyframes[currentKeyframe].animations[i];
+          console.log(animation)
+          if(animation.translateY) {
+            translateY = (currentScrollTop - prevKeyframesHeights) * (animation.translateY / keyframes[currentKeyframe].duration);
+          } else {
+            translateY = 0;
+          }
+          if(animation.translateX) {
+            translateX = (currentScrollTop - prevKeyframesHeights) * (animation.translateX / keyframes[currentKeyframe].duration);
+          } else {
+            translateX = 0;
+          }
+          if(animation.opacity) {
+            // move from 0 to 1 over the course of scroll within the section keyframes[currentKeyframe].duration
+
+
+            // duration = 500px
+            // above sections = 1200px;
+            // currentscroll = 1201px;
+            // must go from 0 to 1 during scroll from 500 to 1000
+
+            // 0 + 1/500
+
+            // that 1 is 
+
+
+
+
+            opacity = 0 + ((currentScrollTop - prevKeyframesHeights) * animation.opacity) / keyframes[currentKeyframe].duration;
+          } else {
+            opacity = 1;
+          }
+          $(animation.selector).css({
+            '-webkit-transform': 'translate3d(' + translateX +'px, ' + translateY + 'px, 0)',
+            'opacity' : opacity
+          })
+        }
+      // }, 5000);
+    };
 
     setKeyframe = function() {
       // console.log(currentKeyframe + ': ' + currentScrollTop + ' needs to be greater than ' + (keyframes[currentKeyframe].duration + prevKeyframesHeights) + ' and lower than ' + (bodyHeight - windowHeight) + ' to advance to next keyframe');
