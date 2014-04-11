@@ -49,6 +49,7 @@ body {
   left: 13%;
   color: white;
   max-width: 300px;
+  opacity: 0;
 }
 .phone {
   position: fixed;

@@ -9,9 +9,10 @@
         $name =                    $('.name'),
         $medium =                  $('.medium'),
         bodyHeight =               0,
-        currentScrollTop =         0,
         windowHeight =             0,
-        prevKeyframesHeights =     0,
+        prevKeyframesDurations =   0,
+        scrollTop =                0,
+        relativeScrollTop =        0,
         currentKeyframe =          0,
         keyframes = [
           {
@@ -20,10 +21,11 @@
             'animations' :  [
               {
                 'selector'    : '.intro',
-                'translateY'  : -400
+                'translateY'  : -100
               } , {
                 'selector'    : '.name',
-                'translateY'  : 0
+                'translateY'  : 0,
+                'opacity'     : 0
               }
             ]
           } , {
@@ -36,7 +38,7 @@
               } , {
                 'selector'    : '.other-name',
                 'translateY'  : '-20%',
-                'opacity'     : .5
+                'opacity'     : 1.5 // hack to accelrate opacity speed
               } , {
                 'selector'    : '.phone',
                 'translateX'  : -670
@@ -48,11 +50,7 @@
                 'translateX'  : -830
               }
             ]
-          } , {
-            'start' : 0,// the keyframe at which you want the animations to start
-            'duration' : '100%',
-            'animations' :  []
-          }
+          } 
         ]
 
     init = function() {
@@ -60,8 +58,24 @@
       buildPage();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
     buildPage = function() {
-      currentScrollTop = $window.scrollTop();
+      scrollTop = $window.scrollTop();
       windowHeight = $window.height();
       for(i=0;i<keyframes.length;i++) {
           keyframes[i].duration = convertPercentToPx(keyframes[i].duration);
@@ -76,64 +90,72 @@
       $window.scroll(0);
     }
 
+    getDefaultPropertyValue = function(property) {
+      switch (property) {
+        case 'translateX':
+          return 0;
+        case 'translateY':
+          return 0;
+        case 'opacity':
+          return 1;
+        default:
+          return null;
+      }
+    };
+
     onScroll = function() {
-      currentScrollTop = $window.scrollTop();
+      setScrollTops();
       animateElements();
       setKeyframe();
     }
 
+    calcPropValue = function(animation, property) {
+      var value = animation[property];
+      if(value) {
+        value = easeOutQuad(relativeScrollTop, 0, value, keyframes[currentKeyframe].duration);
+      } else {
+        value = getDefaultPropertyValue(property);
+      }
+      value = +value.toFixed(2)
+      return value;
+    }
+
+    setScrollTops = function() {
+      scrollTop = $window.scrollTop();
+      relativeScrollTop = scrollTop - prevKeyframesDurations;
+    }
+
     animateElements = function() {
-      var animation, transform, translateY, translateX, opacity;
+      var animation, translateY, translateX, opacity;
       // var animating = setInterval(function() {
         for(i=0;i<keyframes[currentKeyframe].animations.length;i++) {
           animation = keyframes[currentKeyframe].animations[i];
-          console.log(animation)
-          if(animation.translateY) {
-            translateY = (currentScrollTop - prevKeyframesHeights) * (animation.translateY / keyframes[currentKeyframe].duration);
-          } else {
-            translateY = 0;
-          }
-          if(animation.translateX) {
-            translateX = (currentScrollTop - prevKeyframesHeights) * (animation.translateX / keyframes[currentKeyframe].duration);
-          } else {
-            translateX = 0;
-          }
-          if(animation.opacity) {
-            // move from 0 to 1 over the course of scroll within the section keyframes[currentKeyframe].duration
+          translateY = calcPropValue(animation, 'translateY', 'easeOut');
+          translateX = calcPropValue(animation, 'translateX', 'easeOut');
+          opacity   = calcPropValue(animation, 'opacity', 'easeOut');
 
-
-            // duration = 500px
-            // above sections = 1200px;
-            // currentscroll = 1201px;
-            // must go from 0 to 1 during scroll from 500 to 1000
-
-            // 0 + 1/500
-
-            // that 1 is 
-
-
-
-
-            opacity = 0 + ((currentScrollTop - prevKeyframesHeights) * animation.opacity) / keyframes[currentKeyframe].duration;
-          } else {
-            opacity = 1;
-          }
           $(animation.selector).css({
             '-webkit-transform': 'translate3d(' + translateX +'px, ' + translateY + 'px, 0)',
             'opacity' : opacity
           })
+
         }
       // }, 5000);
     };
 
+    easeOutQuad = function (t, b, c, d) {
+      t /= d;
+      return -c * t*(t-2) + b;
+    };
+
     setKeyframe = function() {
-      // console.log(currentKeyframe + ': ' + currentScrollTop + ' needs to be greater than ' + (keyframes[currentKeyframe].duration + prevKeyframesHeights) + ' and lower than ' + (bodyHeight - windowHeight) + ' to advance to next keyframe');
-      if(currentScrollTop > (keyframes[currentKeyframe].duration + prevKeyframesHeights) && currentScrollTop <= (bodyHeight - windowHeight)) {
-          prevKeyframesHeights += keyframes[currentKeyframe].duration;
+      // console.log(currentKeyframe + ': ' + scrollTop + ' needs to be greater than ' + (keyframes[currentKeyframe].duration + prevKeyframesDurations) + ' and lower than ' + (bodyHeight - windowHeight) + ' to advance to next keyframe');
+      if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations) && scrollTop <= (bodyHeight - windowHeight)) {
+          prevKeyframesDurations += keyframes[currentKeyframe].duration;
           currentKeyframe++;
-      } else if(currentScrollTop < prevKeyframesHeights && currentScrollTop >= 0) {
+      } else if(scrollTop < prevKeyframesDurations && scrollTop >= 0) {
           currentKeyframe--;
-          prevKeyframesHeights -= keyframes[currentKeyframe].duration;
+          prevKeyframesDurations -= keyframes[currentKeyframe].duration;
       }
     }
 
