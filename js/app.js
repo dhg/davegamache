@@ -23,9 +23,38 @@
                 'selector'    : '.intro',
                 'translateY'  : -100
               } , {
-                'selector'    : '.name',
-                'translateY'  : 0
-                // 'opacity'     : .01
+                'selector'    : '.name-d',
+                'translateY'  : -15
+              } , {
+                'selector'    : '.name-a',
+                'translateY'  : -10
+              } , {
+                'selector'    : '.name-v',
+                'translateY'  : -20
+              } , {
+                'selector'    : '.name-e',
+                'translateY'  : -4
+              } , {
+                'selector'    : '.name-g',
+                'translateY'  : -12
+              } , {
+                'selector'    : '.name-a-2',
+                'translateY'  : -22
+              } , {
+                'selector'    : '.name-m',
+                'translateY'  : -8
+              } , {
+                'selector'    : '.name-a-3',
+                'translateY'  : -4
+              } , {
+                'selector'    : '.name-c',
+                'translateY'  : -12
+              } , {
+                'selector'    : '.name-h',
+                'translateY'  : -19
+              } , {
+                'selector'    : '.name-e-2',
+                'translateY'  : -9
               }
             ]
           } , {

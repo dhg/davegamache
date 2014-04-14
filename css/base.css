@@ -29,7 +29,7 @@
 	body {
 		background: #fff;
 		font: 24px/1.6 "brandon-grotesque", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-		color: #444;
+		color: #fff;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
  }
@@ -38,7 +38,6 @@
 /* #Typography
 ================================================== */
 h1, h2, h3, h4, h5, h6 {
-	color: #181818;
 	font-weight: bold;
 }
 
