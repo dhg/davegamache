@@ -21,64 +21,30 @@
             'animations' :  [
               {
                 'selector'    : '.intro',
-                'translateY'  : -100
+                'translateY'  : -100,
+                'opacity'     : 0
               } , {
-                'selector'    : '.name-d',
-                'translateY'  : -15
-              } , {
-                'selector'    : '.name-a',
-                'translateY'  : -10
-              } , {
-                'selector'    : '.name-v',
+                'selector'    : '.name',
                 'translateY'  : -20
-              } , {
-                'selector'    : '.name-e',
-                'translateY'  : -4
-              } , {
-                'selector'    : '.name-g',
-                'translateY'  : -12
-              } , {
-                'selector'    : '.name-a-2',
-                'translateY'  : -22
-              } , {
-                'selector'    : '.name-m',
-                'translateY'  : -8
-              } , {
-                'selector'    : '.name-a-3',
-                'translateY'  : -4
-              } , {
-                'selector'    : '.name-c',
-                'translateY'  : -12
-              } , {
-                'selector'    : '.name-h',
-                'translateY'  : -19
-              } , {
-                'selector'    : '.name-e-2',
-                'translateY'  : -9
               }
             ]
           } , {
             'start' : 0,// the keyframe at which you want the animations to start
-            'duration' : '400%',
+            'duration' : '300%',
             'animations' :  [
               {
-                'selector'    : '.medium-background',
-                'translateY'  : -50
-              } , {
-                'selector'    : '.other-name',
+                'selector'    : '.medium-byline',
                 'translateY'  : '-20%',
-                'opacity'     : 1.5 // hack to accelrate opacity speed
+                'opacity'     : [0, 1.75] // hack to accelrate opacity speed
               } , {
-                'selector'    : '.phone',
-                'translateX'  : -670
-              } , {
-                'selector'    : '.phone-2',
-                'translateX'  : -750
-              } , {
-                'selector'    : '.phone-3',
-                'translateX'  : -830
+                'selector'    : '.raw-homepage',
+                'translateY'  : '-80%'
               }
             ]
+          } , {
+            'start' : 0,// the keyframe at which you want the animations to start
+            'duration' : '100%',
+            'animations' :  []
           } 
         ]
 
@@ -95,7 +61,17 @@
           bodyHeight += keyframes[i].duration;
           for(j=0;j<keyframes[i].animations.length;j++) {
             Object.keys(keyframes[i].animations[j]).forEach(function(key) {
-                keyframes[i].animations[j][key] = convertPercentToPx(keyframes[i].animations[j][key]);
+              // console.log(keyframes[i].animations[j][key]);
+              value = convertPercentToPx(keyframes[i].animations[j][key]);
+              if(value instanceof Array || key === 'selector') {
+                //
+              } else {
+                var valueSet = [];
+                valueSet.push(getDefaultPropertyValue(key), value);
+                value = valueSet;
+              }
+              // console.log(value)
+              keyframes[i].animations[j][key] = value;
             });
           }
       }
@@ -109,6 +85,8 @@
           return 0;
         case 'translateY':
           return 0;
+        case 'scale':
+          return 1;
         case 'opacity':
           return 1;
         default:
@@ -125,7 +103,7 @@
     calcPropValue = function(animation, property) {
       var value = animation[property];
       if(value) {
-        value = easeInOutQuad(relativeScrollTop, 0, value, keyframes[currentKeyframe].duration);
+        value = easeInOutQuad(relativeScrollTop, value[0], (value[1]-value[0]), keyframes[currentKeyframe].duration);
       } else {
         value = getDefaultPropertyValue(property);
       }
@@ -139,16 +117,17 @@
     }
 
     animateElements = function() {
-      var animation, translateY, translateX, opacity;
+      var animation, translateY, translateX, scale, opacity;
       // var animating = setInterval(function() {
         for(i=0;i<keyframes[currentKeyframe].animations.length;i++) {
-          animation = keyframes[currentKeyframe].animations[i];
-          translateY = calcPropValue(animation, 'translateY', 'easeOut');
-          translateX = calcPropValue(animation, 'translateX', 'easeOut');
-          opacity   = calcPropValue(animation, 'opacity', 'easeOut');
+          animation   = keyframes[currentKeyframe].animations[i];
+          translateY  = calcPropValue(animation, 'translateY', 'easeOut');
+          translateX  = calcPropValue(animation, 'translateX', 'easeOut');
+          scale       = calcPropValue(animation, 'scale', 'easeOut');
+          opacity     = calcPropValue(animation, 'opacity', 'easeOut');
 
           $(animation.selector).css({
-            '-webkit-transform': 'translate3d(' + translateX +'px, ' + translateY + 'px, 0)',
+            '-webkit-transform': 'translate3d(' + translateX +'px, ' + translateY + 'px, 0) scale('+ scale +')',
             'opacity' : opacity
           })
 
@@ -157,6 +136,7 @@
     };
 
     easeInOutQuad = function (t, b, c, d) {
+      // return c*t/d + b;
       t /= d/2;
       if (t < 1) return c/2*t*t + b;
       t--;
