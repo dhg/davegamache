@@ -93,7 +93,7 @@
     buildPage = function() {
       scrollTop = $window.scrollTop();
       windowHeight = $window.height();
-      var test = getUniqueSelectors();
+      // var test = getUniqueSelectors();
       for(var i=0;i<keyframes.length;i++) {
           keyframes[i].duration = convertPercentToPx(keyframes[i].duration);
           bodyHeight += keyframes[i].duration;
@@ -131,7 +131,7 @@
     };
 
     getUniqueSelectors = function() {
-      var selectors = ['.intro']
+      var selectors = []
       for(var i=0;i<keyframes.length;i++) {
         for(var j=0;j<keyframes[i].animations.length;j++) {
           Object.keys(keyframes[i].animations[j]).forEach(function(key) {
