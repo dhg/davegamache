@@ -14,9 +14,9 @@
         scrollTop =                0,
         relativeScrollTop =        0,
         currentKeyframe =          0,
+        selectorProps =            []
         keyframes = [
           {
-            'start' : 0,// the keyframe at which you want the animations to start
             'duration' : '150%',
             'animations' :  [
               {
@@ -29,7 +29,6 @@
               }
             ]
           } , {
-            'start' : 0,// the keyframe at which you want the animations to start
             'duration' : '300%',
             'animations' :  [
               {
@@ -44,11 +43,9 @@
               }
             ]
           } , {
-            'start' : 0,// the keyframe at which you want the animations to start
             'duration' : '80%',
             'animations' :  []
           } , {
-            'start' : 0,// the keyframe at which you want the animations to start
             'duration' : '250%',
             'animations' :  [
               {
@@ -63,11 +60,9 @@
               }
             ]
           } , {
-            'start' : 0,// the keyframe at which you want the animations to start
             'duration' : '80%',
             'animations' :  []
           } , {
-            'start' : 0,// the keyframe at which you want the animations to start
             'duration' : '250%',
             'animations' :  [
               {
@@ -94,20 +89,32 @@
       scrollTop = $window.scrollTop();
       windowHeight = $window.height();
       // var test = getUniqueSelectors();
-      for(var i=0;i<keyframes.length;i++) {
+      for(var i=0;i<keyframes.length;i++) { // keyframes
           keyframes[i].duration = convertPercentToPx(keyframes[i].duration);
           bodyHeight += keyframes[i].duration;
-          for(var j=0;j<keyframes[i].animations.length;j++) {
-            Object.keys(keyframes[i].animations[j]).forEach(function(key) {
-              value = convertPercentToPx(keyframes[i].animations[j][key]);
-              if(value instanceof Array || key === 'selector') {
-                // Fix this weird empty if...
-              } else {
-                var valueSet = [];
-                valueSet.push(getDefaultPropertyValue(key), value);
-                value = valueSet;
+          for(var j=0;j<keyframes[i].animations.length;j++) { // animations
+            Object.keys(keyframes[i].animations[j]).forEach(function(key) { // properties
+
+              // only set this if its a string with a %?
+              value = keyframes[i].animations[j][key];
+
+              if(key !== 'selector') {
+                if(value instanceof Array) { // if its an array
+                  for(var i=0;i<value.length;i++) { // if value in array is %
+                    if(typeof value === "string") {
+                      value[i] = convertPercentToPx(value[i]);
+                    }
+                  } 
+                } else {
+                  var valueSet = [];
+                  if(typeof value === "string") { // if single value is a %
+                    value = convertPercentToPx(value);
+                  }
+                  valueSet.push(getDefaultPropertyValue(key), value);
+                  value = valueSet;
+                }
+                keyframes[i].animations[j][key] = value;
               }
-              keyframes[i].animations[j][key] = value;
             });
           }
       }
@@ -129,22 +136,6 @@
           return null;
       }
     };
-
-    getUniqueSelectors = function() {
-      var selectors = []
-      for(var i=0;i<keyframes.length;i++) {
-        for(var j=0;j<keyframes[i].animations.length;j++) {
-          Object.keys(keyframes[i].animations[j]).forEach(function(key) {
-            if(key === 'selector') {
-              if($.inArray(keyframes[i].animations[j][key], selectors) === -1) {
-                selectors.push(keyframes[i].animations[j][key])
-              }
-            }
-          })
-        }
-      }
-      return selectors;
-    }
 
     onScroll = function() {
       setScrollTops();
