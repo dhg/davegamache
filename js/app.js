@@ -93,25 +93,46 @@
     buildPage = function() {
       scrollTop = $window.scrollTop();
       windowHeight = $window.height();
-      var test = getUniqueSelectors();
-      for(var i=0;i<keyframes.length;i++) {
+      var uniqueSelectors = getUniqueSelectors();
+      for(var h=0;h<uniqueSelectors.length;h++) {
+        var currentSelector = uniqueSelectors[h];
+        for(var i=0;i<keyframes.length;i++) {
           keyframes[i].duration = convertPercentToPx(keyframes[i].duration);
           bodyHeight += keyframes[i].duration;
           for(var j=0;j<keyframes[i].animations.length;j++) {
-            Object.keys(keyframes[i].animations[j]).forEach(function(key) {
-              value = convertPercentToPx(keyframes[i].animations[j][key]);
-              if(value instanceof Array || key === 'selector') {
-                // Fix this weird empty if...
-              } else {
-                var valueSet = [];
-                valueSet.push(getDefaultPropertyValue(key), value);
-                value = valueSet;
-              }
-              keyframes[i].animations[j][key] = value;
-            });
+
+
+            if(keyframes[i].animations[j].selector != currentSelector) {
+              Object.keys(keyframes[i].animations[j]).forEach(function(key) {
+                value = convertPercentToPx(keyframes[i].animations[j][key]);
+                if(value instanceof Array || key === 'selector') {
+                  // Fix this weird empty if...
+                } else {
+                  var valueSet = [];
+                  valueSet.push(getDefaultPropertyValue(key), value);
+                  value = valueSet;
+                }
+                keyframes[i].animations[j][key] = value;
+              });
+            } else {
+              Object.keys(keyframes[i].animations[j]).forEach(function(key) {
+                value = convertPercentToPx(keyframes[i].animations[j][key]);
+                if(value instanceof Array || key === 'selector') {
+                  // Fix this weird empty if...
+                } else {
+                  var valueSet = [];
+                  valueSet.push(getDefaultPropertyValue(key), value);
+                  value = valueSet;
+                }
+                keyframes[i].animations[j][key] = value;
+              });
+            }
+          
+
           }
+        }
       }
-      $body.height(bodyHeight);
+      $body.height(bodyHeight/uniqueSelectors.length);
       $window.scroll(0);
     }
 
