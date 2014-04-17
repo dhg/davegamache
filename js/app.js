@@ -14,7 +14,6 @@
         scrollTop =                0,
         relativeScrollTop =        0,
         currentKeyframe =          0,
-        selectorProps =            []
         keyframes = [
           {
             'duration' : '150%',
@@ -57,6 +56,9 @@
               } , {
                 'selector'    : '.iphone',
                 'translateY'  : '-66%'
+              } , {
+                'selector'    : '.raw-page',
+                'translateY'  : ['-90%', '-90%'],
               }
             ]
           } , {
@@ -86,23 +88,20 @@
     }
 
     buildPage = function() {
+      var i, j, k;
       scrollTop = $window.scrollTop();
       windowHeight = $window.height();
-      // var test = getUniqueSelectors();
-      for(var i=0;i<keyframes.length;i++) { // keyframes
+      for(i=0;i<keyframes.length;i++) { // loop keyframes
           keyframes[i].duration = convertPercentToPx(keyframes[i].duration);
           bodyHeight += keyframes[i].duration;
-          for(var j=0;j<keyframes[i].animations.length;j++) { // animations
-            Object.keys(keyframes[i].animations[j]).forEach(function(key) { // properties
-
-              // only set this if its a string with a %?
+          for(j=0;j<keyframes[i].animations.length;j++) { // loop animations
+            Object.keys(keyframes[i].animations[j]).forEach(function(key) { // loop properties
               value = keyframes[i].animations[j][key];
-
               if(key !== 'selector') {
                 if(value instanceof Array) { // if its an array
-                  for(var i=0;i<value.length;i++) { // if value in array is %
-                    if(typeof value === "string") {
-                      value[i] = convertPercentToPx(value[i]);
+                  for(k=0;k<value.length;k++) { // if value in array is %
+                    if(typeof value[k] === "string") {
+                      value[k] = convertPercentToPx(value[k]);
                     }
                   } 
                 } else {
@@ -168,6 +167,10 @@
           translateX  = calcPropValue(animation, 'translateX', 'easeOut');
           scale       = calcPropValue(animation, 'scale', 'easeOut');
           opacity     = calcPropValue(animation, 'opacity', 'easeOut');
+
+          if(opacity != 1) {
+            console.log(animation.selector + ' : ' + opacity);
+          }
 
           $(animation.selector).css({
             '-webkit-transform': 'translate3d(' + translateX +'px, ' + translateY + 'px, 0) scale('+ scale +')',
