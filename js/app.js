@@ -168,10 +168,6 @@
           scale       = calcPropValue(animation, 'scale', 'easeOut');
           opacity     = calcPropValue(animation, 'opacity', 'easeOut');
 
-          if(opacity != 1) {
-            console.log(animation.selector + ' : ' + opacity);
-          }
-
           $(animation.selector).css({
             '-webkit-transform': 'translate3d(' + translateX +'px, ' + translateY + 'px, 0) scale('+ scale +')',
             'opacity' : opacity
