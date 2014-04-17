@@ -62,26 +62,28 @@ body {
 .medium-byline {
   position: fixed;
   top: 63%;
-  left: 13%;
+  left: 10%;
   color: white;
-  max-width: 300px;
+  max-width: 22%;
+}
+.medium-byline-1,
+.medium-byline-2,
+.medium-byline-3 {
   opacity: 0;
 }
-.macbook {
-  position: fixed;
-  left: 120%;
-  top: 15%;
-  width: 866px;
-  height: 500px;
-  background-image: url(../img/oversized-macbook-air.png);
-  background-size: cover;
-}
-.raw-homepage {
+.raw-page {
   position: fixed;
   top: 100%;
   right: 7%;
-  width: 585px;
-  height: 656px;
-  background-image: url(../img/oversized-raw-homepage.png);
-  background-size: cover;
+  width: 45%;
+  border-radius: 6px;
+  box-shadow: inset 0 0 1px rgba(255,255,255,.3);
+  border: 1px solid rgba(0,0,0,.2);
+  background-clip: padding-box;
+}
+.iphone {
+  position: fixed;
+  right: 43%;
+  top: 102%;
+  width: 16%;
 }

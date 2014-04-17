@@ -34,11 +34,48 @@
             'animations' :  [
               {
                 'selector'    : '.medium-byline',
-                'translateY'  : '-20%',
+                'translateY'  : '-25%'
+              } , {
+                'selector'    : '.medium-byline-1',
                 'opacity'     : [0, 1.75] // hack to accelrate opacity speed
               } , {
-                'selector'    : '.raw-homepage',
-                'translateY'  : '-80%'
+                'selector'    : '.raw-page',
+                'translateY'  : '-90%'
+              }
+            ]
+          } , {
+            'start' : 0,// the keyframe at which you want the animations to start
+            'duration' : '80%',
+            'animations' :  []
+          } , {
+            'start' : 0,// the keyframe at which you want the animations to start
+            'duration' : '250%',
+            'animations' :  [
+              {
+                'selector'    : '.medium-byline-2',
+                'opacity'     : [0, 1]
+              } , {
+                'selector'    : '.medium-byline-1',
+                'opacity'     : [1, .3]
+              } , {
+                'selector'    : '.iphone',
+                'translateY'  : '-66%'
+              }
+            ]
+          } , {
+            'start' : 0,// the keyframe at which you want the animations to start
+            'duration' : '80%',
+            'animations' :  []
+          } , {
+            'start' : 0,// the keyframe at which you want the animations to start
+            'duration' : '250%',
+            'animations' :  [
+              {
+                'selector'    : '.medium-byline-3',
+                'opacity'     : [0, 1]
+              } , {
+                'selector'    : '.medium-byline-2',
+                'opacity'     : [1, .3]
               }
             ]
           } , {
@@ -56,21 +93,20 @@
     buildPage = function() {
       scrollTop = $window.scrollTop();
       windowHeight = $window.height();
-      for(i=0;i<keyframes.length;i++) {
+      var test = getUniqueSelectors();
+      for(var i=0;i<keyframes.length;i++) {
           keyframes[i].duration = convertPercentToPx(keyframes[i].duration);
           bodyHeight += keyframes[i].duration;
-          for(j=0;j<keyframes[i].animations.length;j++) {
+          for(var j=0;j<keyframes[i].animations.length;j++) {
             Object.keys(keyframes[i].animations[j]).forEach(function(key) {
-              // console.log(keyframes[i].animations[j][key]);
               value = convertPercentToPx(keyframes[i].animations[j][key]);
               if(value instanceof Array || key === 'selector') {
-                //
+                // Fix this weird empty if...
               } else {
                 var valueSet = [];
                 valueSet.push(getDefaultPropertyValue(key), value);
                 value = valueSet;
               }
-              // console.log(value)
               keyframes[i].animations[j][key] = value;
             });
           }
@@ -93,6 +129,22 @@
           return null;
       }
     };
+
+    getUniqueSelectors = function() {
+      var selectors = ['.intro']
+      for(var i=0;i<keyframes.length;i++) {
+        for(var j=0;j<keyframes[i].animations.length;j++) {
+          Object.keys(keyframes[i].animations[j]).forEach(function(key) {
+            if(key === 'selector') {
+              if($.inArray(keyframes[i].animations[j][key], selectors) === -1) {
+                selectors.push(keyframes[i].animations[j][key])
+              }
+            }
+          })
+        }
+      }
+      return selectors;
+    }
 
     onScroll = function() {
       setScrollTops();
@@ -119,7 +171,7 @@
     animateElements = function() {
       var animation, translateY, translateX, scale, opacity;
       // var animating = setInterval(function() {
-        for(i=0;i<keyframes[currentKeyframe].animations.length;i++) {
+        for(var i=0;i<keyframes[currentKeyframe].animations.length;i++) {
           animation   = keyframes[currentKeyframe].animations[i];
           translateY  = calcPropValue(animation, 'translateY', 'easeOut');
           translateX  = calcPropValue(animation, 'translateX', 'easeOut');
@@ -148,7 +200,7 @@
       if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations) && scrollTop <= (bodyHeight - windowHeight)) {
           prevKeyframesDurations += keyframes[currentKeyframe].duration;
           currentKeyframe++;
-      } else if(scrollTop < prevKeyframesDurations && scrollTop >= 0) {
+      } else if(scrollTop < prevKeyframesDurations && scrollTop > 0) {
           currentKeyframe--;
           prevKeyframesDurations -= keyframes[currentKeyframe].duration;
       }
