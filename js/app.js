@@ -84,41 +84,57 @@
 
     init = function() {
       $window.on('scroll', onScroll);
+      scrollTop = $window.scrollTop();
+      windowHeight = $window.height();
+      convertAllPropsToPx();
       buildPage();
     }
 
     buildPage = function() {
       var i, j, k;
-      scrollTop = $window.scrollTop();
-      windowHeight = $window.height();
       for(i=0;i<keyframes.length;i++) { // loop keyframes
-          keyframes[i].duration = convertPercentToPx(keyframes[i].duration);
           bodyHeight += keyframes[i].duration;
           for(j=0;j<keyframes[i].animations.length;j++) { // loop animations
             Object.keys(keyframes[i].animations[j]).forEach(function(key) { // loop properties
               value = keyframes[i].animations[j][key];
-              if(key !== 'selector') {
-                if(value instanceof Array) { // if its an array
-                  for(k=0;k<value.length;k++) { // if value in array is %
-                    if(typeof value[k] === "string") {
-                      value[k] = convertPercentToPx(value[k]);
-                    }
-                  } 
-                } else {
-                  var valueSet = [];
-                  if(typeof value === "string") { // if single value is a %
-                    value = convertPercentToPx(value);
-                  }
-                  valueSet.push(getDefaultPropertyValue(key), value);
-                  value = valueSet;
-                }
-                keyframes[i].animations[j][key] = value;
+              if(key !== 'selector' && value instanceof Array === false) {
+                var valueSet = [];
+                valueSet.push(getDefaultPropertyValue(key), value);
+                value = valueSet;
               }
+              keyframes[i].animations[j][key] = value;
             });
           }
       }
       $body.height(bodyHeight);
       $window.scroll(0);
+    }
+
+    convertAllPropsToPx = function() {
+      var i, j, k;
+      for(i=0;i<keyframes.length;i++) { // loop keyframes
+        keyframes[i].duration = convertPercentToPx(keyframes[i].duration);
+        for(j=0;j<keyframes[i].animations.length;j++) { // loop animations
+          Object.keys(keyframes[i].animations[j]).forEach(function(key) { // loop properties
+            value = keyframes[i].animations[j][key];
+            if(key !== 'selector') {
+              if(value instanceof Array) { // if its an array
+                for(k=0;k<value.length;k++) { // if value in array is %
+                  if(typeof value[k] === "string") {
+                    value[k] = convertPercentToPx(value[k]);
+                  }
+                } 
+              } else {
+                if(typeof value === "string") { // if single value is a %
+                  value = convertPercentToPx(value);
+                }
+              }
+              console.log(keyframes[i].animations[j][key] + ' vs. ' + value)
+              keyframes[i].animations[j][key] = value;
+            }
+          });
+        }
+      }
     }
 
     getDefaultPropertyValue = function(property) {
