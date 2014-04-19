@@ -2,7 +2,7 @@
   $(function() {
 
     // Variables
-    var SCROLL_SPEED_MULTIPLIER =  1, 
+    var PROPERTIES =               ['translateX', 'translateY', 'opacity', 'scale'],
         $window =                  $(window),
         $body =                    $('body'),
         $intro =                   $('.intro'),
