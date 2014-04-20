@@ -10,6 +10,7 @@
         $medium =                  $('.medium'),
         bodyHeight =               0,
         windowHeight =             0,
+        windowWidth =              0,
         prevKeyframesDurations =   0,
         scrollTop =                0,
         relativeScrollTop =        0,
@@ -19,12 +20,13 @@
             'duration' : '150%',
             'animations' :  [
               {
-                'selector'    : '.intro',
-                'translateY'  : -100,
+                'selector'    : '.name',
+                'translateY'  : -120,
                 'opacity'     : 0
               } , {
-                'selector'    : '.name',
-                'translateY'  : -20
+                'selector'    : '.byline',
+                'translateY'  : -100,
+                'opacity'     : 0
               }
             ]
           } , {
@@ -56,9 +58,6 @@
               } , {
                 'selector'    : '.iphone',
                 'translateY'  : '-66%'
-              } , {
-                'selector'    : '.raw-page',
-                'translateY'  : ['-90%', '-90%'],
               }
             ]
           } , {
@@ -77,15 +76,38 @@
             ]
           } , {
             'start' : 0,// the keyframe at which you want the animations to start
+            'duration' : '80%',
+            'animations' :  []
+          } , {
+            'duration' : '250%',
+            'animations' :  [
+              {
+                'selector'    : '.iphone',
+                'translateY'  : ['-66%', '-66%'],
+                'translateX'  : '-5%'
+              } , {
+                'selector'    : '.raw-page',
+                'translateY'  : ['-90%', '-90%'],
+                'translateX'  : '-45%'
+              } , {
+                'selector'    : '.medium-byline',
+                'opacity'     : 0,
+                'translateY'  : ['-25%','-25%'],
+                'translateX'  : '-5%'
+              }
+            ]
+          } , {
+            'start' : 0,// the keyframe at which you want the animations to start
             'duration' : '100%',
             'animations' :  []
-          } 
+          } , 
         ]
 
     init = function() {
       $window.on('scroll', onScroll);
       scrollTop = $window.scrollTop();
       windowHeight = $window.height();
+      windowWidth = $window.width();
       convertAllPropsToPx();
       buildPage();
     }
@@ -151,7 +173,7 @@
     convertAllPropsToPx = function() {
       var i, j, k;
       for(i=0;i<keyframes.length;i++) { // loop keyframes
-        keyframes[i].duration = convertPercentToPx(keyframes[i].duration);
+        keyframes[i].duration = convertPercentToPx(keyframes[i].duration, 'y');
         for(j=0;j<keyframes[i].animations.length;j++) { // loop animations
           Object.keys(keyframes[i].animations[j]).forEach(function(key) { // loop properties
             value = keyframes[i].animations[j][key];
@@ -159,12 +181,20 @@
               if(value instanceof Array) { // if its an array
                 for(k=0;k<value.length;k++) { // if value in array is %
                   if(typeof value[k] === "string") {
-                    value[k] = convertPercentToPx(value[k]);
+                    if(key === 'translateY') {
+                      value[k] = convertPercentToPx(value[k], 'y');
+                    } else {
+                      value[k] = convertPercentToPx(value[k], 'x');
+                    }
                   }
                 } 
               } else {
                 if(typeof value === "string") { // if single value is a %
-                  value = convertPercentToPx(value);
+                  if(key === 'translateY') {
+                    value = convertPercentToPx(value, 'y');
+                  } else {
+                    value = convertPercentToPx(value, 'x');
+                  }
                 }
               }
               // console.log(keyframes[i].animations[j][key] + ' vs. ' + value)
@@ -289,9 +319,10 @@
       }
     }
 
-    convertPercentToPx = function(value) {
+    convertPercentToPx = function(value, axis) {
       if(typeof value === "string" && value.match(/%/g)) {
-          value = (parseFloat(value) / 100) * windowHeight;
+        if(axis === 'y') value = (parseFloat(value) / 100) * windowHeight;
+        if(axis === 'x') value = (parseFloat(value) / 100) * windowWidth;
       }
       return value;
     }
