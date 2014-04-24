@@ -8,6 +8,7 @@
         $intro =                   $('.intro'),
         $name =                    $('.name'),
         $medium =                  $('.medium'),
+        scrollTimeoutID =          0,
         bodyHeight =               0,
         windowHeight =             0,
         windowWidth =              0,
@@ -182,10 +183,18 @@
     }
 
     onScroll = function() {
-      window.requestAnimationFrame(scrollHandler);
+      if(scrollTop = $window.scrollTop()) {
+        scrollIntervalID = setInterval(scrollHandler, 1010);
+      } else {
+        clearInterval(scrollIntervalID);
+      }
     }
 
     scrollHandler = function() {
+      window.requestAnimationFrame(updatePage);
+    }
+
+    updatePage = function() {
       setScrollTops();
       if(scrollTop > 0 && scrollTop <= (bodyHeight - windowHeight)) {
         animateElements();
