@@ -181,10 +181,12 @@
       }
     }
 
-    onScroll = function() {
+    onScroll = function(e) {
       setScrollTops();
-      animateElements();
-      setKeyframe();
+      if(scrollTop > 0 && scrollTop <= (bodyHeight - windowHeight)) {
+        animateElements();
+        setKeyframe();
+      }
     }
 
     calcPropValue = function(animation, property) {
@@ -216,22 +218,32 @@
           '-webkit-transform': 'translate3d(' + translateX +'px, ' + translateY + 'px, 0) scale('+ scale +')',
           'opacity' : opacity
         })
-
       }
     };
 
     easeInOutQuad = function (t, b, c, d) {
-      t /= d/2;
-      if (t < 1) return c/2*t*t + b;
-      t--;
-      return -c/2 * (t*(t-2) - 1) + b;
+      // linear
+      // return c*t/d + b;
+
+      //quad out
+      // t /= d;
+      // return -c * t*(t-2) + b;
+
+      //sinusoadial in and out
+      return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+
+      // quadinout
+      // t /= d/2;
+      // if (t < 1) return c/2*t*t + b;
+      // t--;
+      // return -c/2 * (t*(t-2) - 1) + b;
     };
 
     setKeyframe = function() {
-      if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations) && scrollTop <= (bodyHeight - windowHeight)) {
+      if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
           prevKeyframesDurations += keyframes[currentKeyframe].duration;
           currentKeyframe++;
-      } else if(scrollTop < prevKeyframesDurations && scrollTop > 0) {
+      } else if(scrollTop < prevKeyframesDurations) {
           currentKeyframe--;
           prevKeyframesDurations -= keyframes[currentKeyframe].duration;
       }
