@@ -79,7 +79,7 @@
             'duration' : '80%',
             'animations' :  []
           } , {
-            'duration' : '250%',
+            'duration' : '300%',
             'animations' :  [
               {
                 'selector'    : '.iphone',
@@ -181,13 +181,17 @@
       }
     }
 
-    onScroll = function(e) {
+    onScroll = function() {
+      window.requestAnimationFrame(scrollHandler);
+    }
+
+    scrollHandler = function() {
       setScrollTops();
       if(scrollTop > 0 && scrollTop <= (bodyHeight - windowHeight)) {
         animateElements();
         setKeyframe();
       }
-    }
+    }    
 
     calcPropValue = function(animation, property) {
       var value = animation[property];
@@ -215,7 +219,7 @@
         opacity     = calcPropValue(animation, 'opacity', 'easeOut');
 
         $(animation.selector).css({
-          '-webkit-transform': 'translate3d(' + translateX +'px, ' + translateY + 'px, 0) scale('+ scale +')',
+          'transform':    'translate3d(' + translateX +'px, ' + translateY + 'px, 0) scale('+ scale +')',
           'opacity' : opacity
         })
       }
