@@ -1,13 +1,13 @@
 (function() {
   $(function() {
 
-    // Variables
+    /*  Globals
+    -------------------------------------------------- */
     var PROPERTIES =               ['translateX', 'translateY', 'opacity', 'scale'],
         $window =                  $(window),
         $body =                    $('body'),
-        $intro =                   $('.intro'),
-        $name =                    $('.name'),
-        $medium =                  $('.medium'),
+        wrappers =                 [],
+        currentWrapper =           null,
         scrollTimeoutID =          0,
         bodyHeight =               0,
         windowHeight =             0,
@@ -18,6 +18,7 @@
         currentKeyframe =          0,
         keyframes = [
           {
+            'wrapper' : '#intro',
             'duration' : '150%',
             'animations' :  [
               {
@@ -31,6 +32,7 @@
               }
             ]
           } , {
+            'wrapper' : '#medium',
             'duration' : '300%',
             'animations' :  [
               {
@@ -45,9 +47,11 @@
               }
             ]
           } , {
+            'wrapper' : '#medium',
             'duration' : '80%',
             'animations' :  []
           } , {
+            'wrapper' : '#medium',
             'duration' : '250%',
             'animations' :  [
               {
@@ -62,9 +66,11 @@
               }
             ]
           } , {
+            'wrapper' : '#medium',
             'duration' : '80%',
             'animations' :  []
           } , {
+            'wrapper' : '#medium',
             'duration' : '250%',
             'animations' :  [
               {
@@ -76,10 +82,11 @@
               }
             ]
           } , {
-            'start' : 0,// the keyframe at which you want the animations to start
+            'wrapper' : '#medium',
             'duration' : '80%',
             'animations' :  []
           } , {
+            'wrapper' : '#medium',
             'duration' : '300%',
             'animations' :  [
               {
@@ -98,15 +105,16 @@
               }
             ]
           } , {
-            'start' : 0,// the keyframe at which you want the animations to start
+            'wrapper' : '#medium',
             'duration' : '100%',
             'animations' :  []
           } , 
         ]
 
+    /*  Construction
+    -------------------------------------------------- */
     init = function() {
-      // $window.on('scroll', onScroll);
-      scrollIntervalID = setInterval(onScroll, 10);
+      scrollIntervalID = setInterval(updatePage, 10);
       scrollTop = $window.scrollTop();
       windowHeight = $window.height();
       windowWidth = $window.width();
@@ -118,6 +126,9 @@
       var i, j, k;
       for(i=0;i<keyframes.length;i++) { // loop keyframes
           bodyHeight += keyframes[i].duration;
+          if($.inArray(keyframes[i].wrapper, wrappers) == -1) {
+            wrappers.push(keyframes[i].wrapper);
+          }
           for(j=0;j<keyframes[i].animations.length;j++) { // loop animations
             Object.keys(keyframes[i].animations[j]).forEach(function(key) { // loop properties
               value = keyframes[i].animations[j][key];
@@ -132,6 +143,8 @@
       }
       $body.height(bodyHeight);
       $window.scroll(0);
+      currentWrapper = wrappers[0];
+      $(currentWrapper).show();
     }
 
     convertAllPropsToPx = function() {
@@ -183,27 +196,19 @@
       }
     }
 
-    onScroll = function() {
-      window.requestAnimationFrame(scrollHandler);
-    }
-
-    scrollHandler = function() {
-      setScrollTops();
-      if(scrollTop > 0 && scrollTop <= (bodyHeight - windowHeight)) {
-        animateElements();
-        setKeyframe();
-      }
-    }    
-
-    calcPropValue = function(animation, property) {
-      var value = animation[property];
-      if(value) {
-        value = easeInOutQuad(relativeScrollTop, value[0], (value[1]-value[0]), keyframes[currentKeyframe].duration);
-      } else {
-        value = getDefaultPropertyValue(property);
-      }
-      value = +value.toFixed(2)
-      return value;
+    /*  Animation/Scrolling
+    -------------------------------------------------- */
+    updatePage = function() {
+      // console.log(Math.abs(scrollTop - $window.scrollTop()) < 100);
+      // if(Math.abs(scrollTop - $window.scrollTop()) < 100) {
+      window.requestAnimationFrame(function() {
+          setScrollTops();
+          if(scrollTop > 0 && scrollTop <= (bodyHeight - windowHeight)) {
+            animateElements();
+            setKeyframe();
+          }
+        });
+      // }
     }
 
     setScrollTops = function() {
@@ -225,7 +230,18 @@
           'opacity' : opacity
         })
       }
-    };
+    }
+
+    calcPropValue = function(animation, property) {
+      var value = animation[property];
+      if(value) {
+        value = easeInOutQuad(relativeScrollTop, value[0], (value[1]-value[0]), keyframes[currentKeyframe].duration);
+      } else {
+        value = getDefaultPropertyValue(property);
+      }
+      value = +value.toFixed(2)
+      return value;
+    }
 
     easeInOutQuad = function (t, b, c, d) {
       // linear
@@ -249,11 +265,27 @@
       if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
           prevKeyframesDurations += keyframes[currentKeyframe].duration;
           currentKeyframe++;
+          showCurrentWrappers();
       } else if(scrollTop < prevKeyframesDurations) {
           currentKeyframe--;
           prevKeyframesDurations -= keyframes[currentKeyframe].duration;
+          showCurrentWrappers();
       }
     }
+
+    showCurrentWrappers = function() {
+      var i;
+      console.log("showCurrentWrappers called")
+      if(keyframes[currentKeyframe].wrapper != currentWrapper) {
+        $(currentWrapper).hide();
+        $(keyframes[currentKeyframe].wrapper).show();
+        currentWrapper = keyframes[currentKeyframe].wrapper;
+        console.log($(keyframes[currentKeyframe].wrapper));
+      }
+    }
+
+    /*  Helpers
+    -------------------------------------------------- */
 
     convertPercentToPx = function(value, axis) {
       if(typeof value === "string" && value.match(/%/g)) {
