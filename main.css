@@ -10,7 +10,7 @@
   background-image: url(highlight.png);
   background-position: center;
   background-repeat: no-repeat;
-  color: #b2b2a6;
+  color: #cbcbbe;
   text-transform: uppercase;
   text-align: center;
   text-rendering: optimizeLegibility;
@@ -80,7 +80,7 @@
   letter-spacing: 0.3em;
   font-size: 10px;
   border-radius: 50px;
-  color: #b2b2a6;
+  color: #cbcbbe;
   text-decoration: none;
 }
 .btn:hover,
