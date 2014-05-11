@@ -16,25 +16,33 @@
 
 <div class="container">
   <div class="container-inner">
-    <div class="scroll-protector"></div>
     <div class="background"></div>
     <section id="intro" class="wrapper">
       <h1 class="name">Dave Gamache</h1>
       <h2 class="byline">Design <span class="ampersand">&amp;</span> development</h2>
     </section>
     <section id="medium" class="wrapper">
+      <section>
       <p class="medium-byline">
         <span class="medium-byline-1">For me, working on Medium was about helping people tell thier story,</span>
         <span class="medium-byline-2">from anywhere in the world,</span>
         <span class="medium-byline-3">no matter who they are.</span>
       </p>
-      <img class="raw-page" src="img/oversized-raw-homepage.jpg">
-      <img class="iphone" src="img/phone.png">
+      <img id="mediumHomepage" class="raw-page" src="img/oversized-raw-homepage.jpg">
+      <img id="mediumProfile" class="raw-page" src="img/medium-profile-web-fullsize-FAKE.jpg">
+      <div class="iphone">
+        <img class="iphone-frame" src="img/iphoneframe.png">
+        <div class="iphone-viewport">
+          <img class="iphone-content" src="img/medium-profile-iphone-fullsize.jpg">
+        </div>
+      </div>
     </section>
   </div>
 </div>
 
-<script src="js/jquery.js"></script>
-<script src="js/app.js"></script>
+<!-- <script src="js/yepnope-1.5.4.min.js"></script> -->
+<!-- <script src="js/loading.js"></script> -->
+<script src="js/jquery-2.0.2.min.js"></script>
+<script src="js/picasso.js"></script>
 </body>
 </html>

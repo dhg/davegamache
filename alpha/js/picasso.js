@@ -42,7 +42,7 @@
                 'selector'    : '.medium-byline-1',
                 'opacity'     : [0, 1.75] // hack to accelrate opacity speed
               } , {
-                'selector'    : '.raw-page',
+                'selector'    : '#mediumHomepage',
                 'translateY'  : '-90%'
               }
             ]
@@ -71,7 +71,7 @@
             'animations' :  []
           } , {
             'wrapper' : '#medium',
-            'duration' : '250%',
+            'duration' : '300%',
             'animations' :  [
               {
                 'selector'    : '.medium-byline-3',
@@ -79,6 +79,16 @@
               } , {
                 'selector'    : '.medium-byline-2',
                 'opacity'     : [1, .3]
+              } , {
+                'selector'    : '.iphone-content',
+                'translateX'  : '-13.3%'
+              } , {
+                'selector'    : '#mediumHomepage',
+                'translateY'  : ['-90%', '-90%'],
+                'scale'       : .9
+              } , {
+                'selector'    : '#mediumProfile',
+                'translateX'  : '-50.2%'
               }
             ]
           } , {
@@ -93,10 +103,6 @@
                 'selector'    : '.iphone',
                 'translateY'  : ['-66%', '-66%'],
                 'translateX'  : '-5%'
-              } , {
-                'selector'    : '.raw-page',
-                'translateY'  : ['-90%', '-90%'],
-                'translateX'  : '-45%'
               } , {
                 'selector'    : '.medium-byline',
                 'opacity'     : 0,
@@ -239,7 +245,8 @@
       } else {
         value = getDefaultPropertyValue(property);
       }
-      value = +value.toFixed(2)
+      // value = +value.toFixed(2) 
+      // TEMPORARILY REMOVED CAUSE SCALE DOESN'T WORK WITHA AGRESSIVE ROUNDING LIKE THIS
       return value;
     }
 
@@ -275,12 +282,12 @@
 
     showCurrentWrappers = function() {
       var i;
-      console.log("showCurrentWrappers called")
+      // console.log("showCurrentWrappers called")
       if(keyframes[currentKeyframe].wrapper != currentWrapper) {
         $(currentWrapper).hide();
         $(keyframes[currentKeyframe].wrapper).show();
         currentWrapper = keyframes[currentKeyframe].wrapper;
-        console.log($(keyframes[currentKeyframe].wrapper));
+        // console.log($(keyframes[currentKeyframe].wrapper));
       }
     }
 
