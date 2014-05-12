@@ -14,6 +14,7 @@
   text-transform: uppercase;
   text-align: center;
   text-rendering: optimizeLegibility;
+  font-family: "brandon-grotesque", Helvetica, sans-serif;
 }
 .wrapper:before {
   content: '';
@@ -59,11 +60,9 @@
   line-height: 1;
   letter-spacing: 0.35em;
   font-weight: 900;
-  font-family: "brandon-grotesque";
   margin-bottom: 0;
 }
 .byline {
-  font-family: "brandon-grotesque";
   font-size: 13px;
   line-height: 1.6;
   font-weight: 300;
@@ -73,7 +72,6 @@
   margin-top: 8px;
 }
 .btn {
-  font-family: "brandon-grotesque";
   display: inline-block;
   padding: 8px 20px 9px;
   border: 1px solid #4c4c4c;
@@ -85,10 +83,7 @@
 }
 .btn:hover,
 .btn:focus {
-  /*background-color: #cccda8;*/
   border-color: #cccda8;
-  /*text-shadow: none;*/
-  /*color: #0b0b0b;*/
   outline: none;
 }
 
@@ -148,7 +143,7 @@
     font-size: 11px;
   }
   .btn {
-    padding: 6px 15px;
+    padding: 6px 18px 7px;
   }
   .social-links {
     margin-top: 55px;
