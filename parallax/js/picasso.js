@@ -349,16 +349,13 @@
     /*  Animation/Scrolling
     -------------------------------------------------- */
     updatePage = function() {
-      // console.log(Math.abs(scrollTop - $window.scrollTop()) < 100);
-      // if(Math.abs(scrollTop - $window.scrollTop()) < 100) {
       window.requestAnimationFrame(function() {
-          setScrollTops();
-          if(scrollTop > 0 && scrollTop <= (bodyHeight - windowHeight)) {
-            animateElements();
-            setKeyframe();
-          }
-        });
-      // }
+        setScrollTops();
+        if(scrollTop > 0 && scrollTop <= (bodyHeight - windowHeight)) {
+          animateElements();
+          setKeyframe();
+        }
+      });
     }
 
     setScrollTops = function() {
@@ -396,21 +393,8 @@
     }
 
     easeInOutQuad = function (t, b, c, d) {
-      // linear
-      // return c*t/d + b;
-
-      //quad out
-      // t /= d;
-      // return -c * t*(t-2) + b;
-
       //sinusoadial in and out
       return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
-
-      // quadinout
-      // t /= d/2;
-      // if (t < 1) return c/2*t*t + b;
-      // t--;
-      // return -c/2 * (t*(t-2) - 1) + b;
     };
 
     setKeyframe = function() {
@@ -427,12 +411,10 @@
 
     showCurrentWrappers = function() {
       var i;
-      // console.log("showCurrentWrappers called")
       if(keyframes[currentKeyframe].wrapper != currentWrapper) {
         $(currentWrapper).hide();
         $(keyframes[currentKeyframe].wrapper).show();
         currentWrapper = keyframes[currentKeyframe].wrapper;
-        // console.log($(keyframes[currentKeyframe].wrapper));
       }
     }
 
