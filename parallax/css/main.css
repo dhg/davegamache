@@ -193,7 +193,11 @@ body {
   color: #fff;
   border-color: #fff;
 }
-
+.twitter {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
 
 /* 4. Handling resize and small devices
 --------------------------------------- */

@@ -29,6 +29,9 @@
                 'selector'    : '.byline',
                 'translateY'  : -110,
                 'opacity'     : 0
+              } , {
+                'selector'    : '.twitter',
+                'opacity'     : [1, 0]
               }
             ]
           } , {
@@ -243,6 +246,9 @@
                 'selector'    : '#links',
                 'opacity'     : [0, 2],
                 'scale'       : [.8, 1]
+              } , {
+                'selector'    : '.twitter',
+                'opacity'     : [0, 1]
               }
             ]
           } , {
