@@ -95,26 +95,7 @@
             'wrapper' : '#medium',
             'duration' : '80%',
             'animations' :  []
-          } , {
-            'wrapper' : '#medium',
-            'duration' : '300%',
-            'animations' :  [
-              {
-                'selector'    : '.iphone',
-                'translateY'  : ['-66%', '-66%'],
-                'translateX'  : '-5%'
-              } , {
-                'selector'    : '.medium-byline',
-                'opacity'     : 0,
-                'translateY'  : ['-25%','-25%'],
-                'translateX'  : '-5%'
-              }
-            ]
-          } , {
-            'wrapper' : '#medium',
-            'duration' : '100%',
-            'animations' :  []
-          } , 
+          }
         ]
 
     /*  Construction
@@ -306,13 +287,3 @@
 
   })
 }).call(this);
-
-
-/*
-
-Thanks for http://www.gizma.com/easing/ for providing the easing 
-To http://www.kirupa.com/forum/showthread.php?378287-Robert-Penner-s-Easing-Equations-in-Pure-JS-(no-jQuery) for helping me understand easing
-To Dropbox Team for not obfuscating their JS which made this project much easier to complete
-
-
-*/
