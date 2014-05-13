@@ -367,11 +367,11 @@
       var animation, translateY, translateX, scale, rotate, opacity;
       for(var i=0;i<keyframes[currentKeyframe].animations.length;i++) {
         animation   = keyframes[currentKeyframe].animations[i];
-        translateY  = calcPropValue(animation, 'translateY', 'easeOut');
-        translateX  = calcPropValue(animation, 'translateX', 'easeOut');
-        scale       = calcPropValue(animation, 'scale', 'easeOut');
-        rotate      = calcPropValue(animation, 'rotate', 'easeOut');
-        opacity     = calcPropValue(animation, 'opacity', 'easeOut');
+        translateY  = calcPropValue(animation, 'translateY');
+        translateX  = calcPropValue(animation, 'translateX');
+        scale       = calcPropValue(animation, 'scale');
+        rotate      = calcPropValue(animation, 'rotate');
+        opacity     = calcPropValue(animation, 'opacity');
 
         $(animation.selector).css({
           'transform':    'translate3d(' + translateX +'px, ' + translateY + 'px, 0) scale('+ scale +') rotate('+ rotate +'deg)',
