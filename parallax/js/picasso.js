@@ -13,6 +13,7 @@
         windowHeight =             0,
         windowWidth =              0,
         prevKeyframesDurations =   0,
+        prevScrollTop =            0,
         scrollTop =                0,
         relativeScrollTop =        0,
         currentKeyframe =          0,
@@ -357,9 +358,10 @@
     updatePage = function() {
       window.requestAnimationFrame(function() {
         setScrollTops();
-        if(scrollTop > 0 && scrollTop <= (bodyHeight - windowHeight)) {
+        if(prevScrollTop != scrollTop) {
           animateElements();
           setKeyframe();
+          prevScrollTop = scrollTop;
         }
       });
     }
