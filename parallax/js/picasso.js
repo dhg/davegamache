@@ -19,7 +19,7 @@
         keyframes = [
           {
             'wrapper' : '#intro',
-            'duration' : '200%',
+            'duration' : '100%',
             'animations' :  [
               {
                 'selector'    : '.name',
@@ -36,7 +36,7 @@
             ]
           } , {
             'wrapper' : '#explosion',
-            'duration' : '300%',
+            'duration' : '150%',
             'animations' :  [
               {
                 'selector'    : '.explosion-byline',
@@ -50,7 +50,7 @@
             ]
           } , {
             'wrapper' : '#explosion',
-            'duration' : '300%',
+            'duration' : '150%',
             'animations' :  [
               {
                 'selector'    : '.dei-1',
@@ -150,7 +150,7 @@
             ]
           } , {
             'wrapper' : '#explosion',
-            'duration' : '200%',
+            'duration' : '100%',
             'animations' :  [
               {
                 'selector'    : '.explosion-byline',
@@ -160,7 +160,7 @@
             ]
           } , {
             'wrapper' : '#images',
-            'duration' : '300%',
+            'duration' : '150%',
             'animations' :  [
               {
                 'selector'    : '.images-byline',
@@ -176,11 +176,11 @@
             ]
           } , {
             'wrapper' : '#images',
-            'duration' : '150%',
+            'duration' : '75%',
             'animations' :  []
           } , {
             'wrapper' : '#images',
-            'duration' : '300%',
+            'duration' : '150%',
             'animations' :  [
               {
                 'selector'    : '.images-byline',
@@ -213,11 +213,11 @@
             ]
           } , {
             'wrapper' : '#images',
-            'duration' : '80%',
+            'duration' : '40%',
             'animations' :  []
           } , {
             'wrapper' : '#images',
-            'duration' : '300%',
+            'duration' : '150%',
             'animations' :  [
               {
                 'selector'    : '.images-byline-2',
@@ -240,7 +240,7 @@
             ]
           } , {
             'wrapper' : '#links',
-            'duration' : '200%',
+            'duration' : '100%',
             'animations' :  [
               {
                 'selector'    : '#links',
