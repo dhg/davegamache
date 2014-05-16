@@ -141,4 +141,7 @@
   .social-link-item {
     margin-left: 20px;
   }
+  .wrapper:after {
+    border-width: 8px;
+  }
 }
