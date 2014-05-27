@@ -166,20 +166,29 @@
   width: 18px;
 }
 
+@media (max-width: 600px) {
+  .name {
+    font-size: 30px;
+    letter-spacing: 0.2em;
+  }
+}
 @media (max-width: 400px) {
   .name {
+    margin-top: 20px;
     font-size: 24px;
+    letter-spacing: 0.1em;
   }
   .byline {
     font-size: 12px;
+    letter-spacing: 0.2em;
   }
   .wrapper-inner {
     margin-top: -20%;
   }
   .wrapper-inner:before {
-    width: 220px;
-    height: 220px;
-    margin-left: -110px;
-    margin-top: -110px;
+    width: 200px;
+    height: 200px;
+    margin-left: -100px;
+    margin-top: -100px;
   }
 }
