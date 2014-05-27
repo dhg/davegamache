@@ -6,16 +6,12 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #0b0b0b;
-  background-image: url(highlight.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #fff;
-  text-transform: uppercase;
-  text-rendering: optimizeLegibility;
-  font-family: "proxima-nova", Helvetica, sans-serif;
-  background-image: url(bg.jpg);
+  background-image: url('bg.jpg');
   background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  text-rendering: optimizeLegibility;
 }
 .wrapper:before {
   content: '';
@@ -27,20 +23,34 @@
 .wrapper:after {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 15px solid #fff;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  border: 1px solid rgba(255,255,255,.2);
 }
 .wrapper-inner {
   position: relative;
   display: inline-block;
   vertical-align: middle;
   z-index: 2;
-  margin-top: 5%;
-  max-width: 75%;
-  left: 12%;
+  margin-top: -4%;
+  max-width: 80%;
+}
+.wrapper-inner:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 337px;
+  height: 337px;
+  left: 50%;
+  top: 50%;
+  margin-left: -168px;
+  margin-top: -168px;
+  background-image: url(circle.png);
+  background-size: 100%;
 }
 .triangle-pattern {
   position: fixed;
@@ -51,37 +61,51 @@
   background-image: url('triangles.png');
   background-size: cover;
   background-position: center;
-  opacity: .06;
+  opacity: .03;
 }
 
 /* Type
 ----------------------------- */
-.preamble {
-  font-size: 14px;
+.name {
+  position: relative;
+  z-index: 2;
+  font-size: 34px;
   line-height: 1;
-  letter-spacing: 0.01em;
-  font-weight: 700;
+  letter-spacing: 0.26em;
+  font-weight: 300;
+  font-style: italic;
+  font-family: "freight-big-pro";
   margin-bottom: 0;
-  color: #d1cdbf;
+  margin-top: 28px;
+  text-transform: uppercase;
 }
-.tagline {
-  font-size: 60px;
-  line-height: .95;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  margin-bottom: 20px;
-  margin-top: 8px;
+.byline {
+  margin-top: 2px;
+  position: relative;
+  z-index: 2;
+  font-family: "brandon-grotesque";
+  font-size: 13px;
+  line-height: 2.2;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
 }
-.tagline .line {
-  display: block;
+.divider {
+  width: 80px;
+  margin-top: 75px;
+  border-color: rgba(255,255,255,.3);
+  border-width: 0;
+  border-bottom-width: 1px;
 }
 
 /* Social Links
 ----------------------------- */
 .social-links {
-  width: 80%;
-  margin-top: 50px;
-  left: 12.1%;
+  position: fixed;
+  width: 475px;
+  left: 50%;
+  bottom: 50px;
+  margin-left: -237px;
   padding: 0;
   list-style-type: none;
 }
@@ -92,56 +116,70 @@
   display: inline-block;
   background-image: url(icons-sprite.png);
   height: 20px;
-  background-size: 87px 20px;
+  background-size: 123px 20px;
   text-indent: -9999px;
-  margin-left: 24px;
-  opacity: .8;
+  margin-left: 15px;
+  opacity: .4;
+  -webkit-transition: all .1s ease-in;
+}
+.social-links .email-link-outer {
+  margin-top: 10px;
+  display: block;
+} 
+.email-link {
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  font-family: "brandon-grotesque";
+  opacity: .5;
   -webkit-transition: opacity .1s ease-in;
 }
-.social-link-item:hover,
-.social-link-item:focus {
+.email-link:hover,
+.email-link:focus {
   opacity: 1;
-  outline: none;
-}
-.social-link-item-dribbble {
-  margin-left: 0 !important;
-  width: 20px;
+} 
+.social-link-item:hover{
+  opacity: 1;
 }
 .social-link-item-twitter {
-  background-position: -20px 0;
-  width: 24px;
+  margin-left: 0;
+  width: 21px;
+}
+.social-link-item-linkedin {
+  background-position: -21px 0;
+  width: 19px;
+}
+.social-link-item-github {
+  background-position: -40px 0;
+  width: 18px;
+}
+.social-link-item-dribbble {
+  background-position: -58px 0;
+  width: 21px;
+}
+.social-link-item-behance {
+  background-position: -79px 0;
+  width: 26px;
 }
 .social-link-item-medium {
-  background-position: -45px 0;
-  width: 20px;
-}
-.social-link-item-email {
-  background-position: -65px 0;
-  width: 22px;
+  background-position: -105px 0;
+  width: 18px;
 }
 
-@media (max-width: 800px) {
-  .preamble {
+@media (max-width: 400px) {
+  .name {
+    font-size: 24px;
+  }
+  .byline {
     font-size: 12px;
   }
-  .tagline {
-    font-size: 45px;
-  }
-}
-@media (max-width: 400px) {
   .wrapper-inner {
-    margin-top: 8%;
+    margin-top: -20%;
   }
-  .preamble {
-    font-size: 11px;
-  }
-  .tagline {
-    font-size: 32px;
-  }
-  .social-link-item {
-    margin-left: 20px;
-  }
-  .wrapper:after {
-    border-width: 8px;
+  .wrapper-inner:before {
+    width: 220px;
+    height: 220px;
+    margin-left: -110px;
+    margin-top: -110px;
   }
 }
