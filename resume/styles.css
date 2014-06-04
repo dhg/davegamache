@@ -16,8 +16,21 @@ body {
   font-weight: 200;
 }
 a {
-  color: #1fabb0;
+  color: #209abd;
 }
+
+.contact {
+  margin-bottom: .8em;
+}
+.contact-list {
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+}
+.contact-item {
+  margin-top: 5px;
+}
+
 
 /* Section --------------------------- */
 .section {
@@ -67,19 +80,31 @@ a {
 }
 
 
-
-
-
-
-
-.contact {
-  margin-bottom: .8em;
+@media all and (max-width: 700px) {
+  .container {
+    width: 80%;
+    font-size: 18px;
+  }
+  .section-meta {
+    border-top-width: 2px;
+    width: 100%;
+    float: none;
+    margin-bottom: 2em;
+  }
+  .section-content {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+  }
+  .company,
+  .name {
+    font-size: 30px;
+  }
 }
-.contact-list {
-  margin-top: 20px;
-  padding-left: 0;
-  list-style: none;
-}
-.contact-item {
-  margin-top: 5px;
+
+@media print {
+  a {
+    color: #111;
+    text-decoration: none;
+  }
 }
