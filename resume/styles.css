@@ -1,0 +1,85 @@
+
+/* Structure --------------------------- */
+html
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 65%;
+  margin: 10em auto 4em;
+  font-family: 'FreightText';
+  line-height: 1.4;
+  font-size: 20px;
+  overflow: hidden;
+  color: #111;
+  font-weight: 200;
+}
+a {
+  color: #1fabb0;
+}
+
+/* Section --------------------------- */
+.section {
+  overflow: hidden;
+  margin-bottom: 3em;
+}
+.section-meta {
+  border-top: 4px solid #111;
+  width: 25%;
+  float: left;
+}
+.section-name {
+  margin-top: 10px;
+}
+.section-content {
+  width: 60%;
+  float: left;
+  margin-left: 15%;
+}
+.job {
+  position: relative;
+  top: -5px;
+  margin-bottom: 3em;
+}
+
+/* Content --------------------------- */
+.duration {
+  color: #aaa;
+  font-size: 16px;
+}
+.company,
+.name {
+  font-size: 40px;
+  font-weight: bold;
+  margin: .1em 0 .1em;
+  line-height: 1.1;
+}
+.name {
+  margin-top: 0;
+}
+.position {
+  font-style: italic;
+}
+.summary {
+  margin: .1em 0;
+  font-weight: 200;
+}
+
+
+
+
+
+
+
+.contact {
+  margin-bottom: .8em;
+}
+.contact-list {
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+}
+.contact-item {
+  margin-top: 5px;
+}
