@@ -8,7 +8,7 @@ body {
 .container {
   width: 65%;
   margin: 10em auto 4em;
-  font-family: 'FreightText';
+  font-family: 'freight-text-pro', georgia, serif;
   line-height: 1.4;
   font-size: 20px;
   overflow: hidden;
