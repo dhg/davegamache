@@ -179,36 +179,60 @@ h6 {
   perspective: 400px; }
 
 .section-knowledge-graph .section-body {
-  padding-bottom: 200px; }
+  padding-bottom: 120px; }
 
 .section-knowledge-graph .section-graphic {
   position: absolute;
-  top: -370px;
+  top: -350px;
   right: -220px;
   width: 794px;
   height: 725px;
-  background: url("../static/images/fullsize/kg-cards.png") no-repeat;
+  background: url("../static/images/fullsize/knowledge-graph.png") no-repeat;
   background-size: contain;
   transform: rotateY(5deg) rotateX(11deg) rotateZ(-5deg); }
 
 .section-product-evie {
-  margin-top: -90px; }
+  margin-top: -90px;
+  perspective: 1000px; }
 
 .section-product-evie .section-body {
-  padding: 175px 0 230px; }
+  padding: 185px 0 70px; }
 
 .section-product-evie .section-graphic {
   position: absolute;
   top: 0;
+  left: -2%;
+  width: 48%;
+  height: 0;
+  margin-top: 203px;
+  padding-bottom: 27%;
+  background-color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  transform: rotateY(24deg) rotateX(0) rotateZ(0); }
+
+.section-product-evie .section-graphic video {
+  position: absolute;
+  top: 0;
   left: 0;
-  width: 538px;
-  height: 638px;
-  background: url("../static/images/fullsize/phone-perspective.png") no-repeat;
-  background-size: contain;
-  background-position: bottom; }
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  overflow: hidden; }
 
 .section-partnerships .section-body {
-  padding: 100px 0; }
+  padding: 170px 0 200px;
+  position: relative;
+  z-index: 2; }
+
+.section-partnerships .section-graphic {
+  position: absolute;
+  top: 15px;
+  right: -60px;
+  width: 627px;
+  height: 762px;
+  background: url("../static/images/fullsize/sidescreen.png") no-repeat;
+  background-size: contain; }
 
 .section-the-future {
   padding: 100px 0 150px; }
@@ -251,11 +275,10 @@ h6 {
     padding-top: 20px; }
 
   .section-product-evie .section-body {
-    padding: 100px 0 250px; }
+    padding: 100px 0 50px; }
 
   .section-product-evie .section-graphic {
-    width: 600px;
-    left: -70px; } }
+    margin-top: 143px; } }
 @media (max-width: 1200px) {
   .section-left .section-body,
   .section-right .section-body {
@@ -273,11 +296,18 @@ h6 {
 
   .section-product-evie .section-body {
     width: 50%;
-    padding: 120px 0 180px; }
+    margin-right: -40px;
+    padding: 120px 0 40px; }
 
-  .section-product-evie .section-graphic {
-    width: 535px;
-    left: -150px; } }
+  .section-partnerships .section-body {
+    width: 50%;
+    padding-bottom: 120px; }
+
+  .section-partnerships .section-graphic {
+    top: 40px;
+    right: -100px;
+    width: 501px;
+    height: 610px; } }
 @media (max-width: 1000px) {
   .section-inner {
     width: 85%; }
@@ -299,7 +329,7 @@ h6 {
 
   .section-knowledge-graph .section-graphic,
   .section-product-evie .section-graphic,
-  .section-android .section-graphic {
+  .section-partnerships .section-graphic {
     width: 100%;
     position: relative;
     top: 0;
@@ -323,7 +353,7 @@ h6 {
     background-position: center; }
 
   .section-product-evie {
-    padding: 80px 0 70px;
+    padding: 140px 0 70px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
 
   .section-product-evie .section-body {
@@ -331,19 +361,33 @@ h6 {
 
   .section-product-evie .section-graphic {
     margin: 0 auto;
-    width: 70%;
-    height: 0;
-    padding-bottom: 50%; }
+    width: 80%;
+    padding-bottom: 45%;
+    transform: rotateY(0) rotateX(15deg) rotateZ(0); }
 
   .section-partnerships {
+    padding-top: 50px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
 
   .section-partnerships .section-body {
-    padding-top: 60px; }
+    padding: 0 0 70px; }
+
+  .section-partnerships .section-graphic {
+    background-position: center;
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 100%;
+    height: 0; }
 
   .section-the-future {
     padding: 60px 0; } }
 @media (max-width: 520px) {
+  .nav-global {
+    padding-bottom: 45px; }
+
+  .particle-network {
+    margin-top: 60px; }
+
   .section-inner {
     width: 92%; }
 
@@ -354,30 +398,19 @@ h6 {
     padding-bottom: 10px; }
 
   .section-knowledge-graph .section-graphic {
-    padding-bottom: 90%;
+    transform: rotateY(0) rotateX(8deg) rotateZ(0);
+    padding-bottom: 100%;
     margin-bottom: 40px; }
 
   .section-product-evie .section-graphic {
-    margin: 0 auto;
-    width: 80%;
-    height: 0;
-    padding-bottom: 75%; }
+    width: 90%;
+    padding-bottom: 50.625%; }
 
   .section-product-evie {
-    padding: 80px 0 50px; }
+    padding-bottom: 50px; }
 
   .section-product-evie .section-body {
     padding-top: 30px; }
-
-  .section-partnerships .flowchart-tablet {
-    max-width: 100%; }
-
-  .section-partnerships .section-body {
-    padding-top: 45px; }
-
-  .section-android .section-body {
-    padding-bottom: 50px;
-    margin-top: -20px; }
 
   .section-footer {
     padding: 50px 0 30px; } }
